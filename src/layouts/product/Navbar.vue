@@ -4,11 +4,11 @@
     <div class="sign"><p><i class="fas fa-sign-in-alt"></i>로그인</p></div>
     <div class="sign"><p><i class="fas fa-user-plus"></i>회원가입</p></div>
   </div>
-
   <!-- 로고 마이페이지 -->
   <div class="container">
-    <div class="secondnav">
-      <svg class="logo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 212 104">
+    <div class="firstnav">
+      <svg class="logo" @click="goToProduct"
+      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 212 104">
         <g id="logo">
           <g id="top">
             <g id="Rectangle 31" filter="url(#top1_i_45_357)">
@@ -167,12 +167,136 @@
   </div>
 
   <!-- 카테고리 네브바 -->
-  <p>부트스트랩 안쓰고</p>
+  <div class="container second">
+    <ul class="secondnav">
+      <li class="toggletext" @click="toggle(), toggledata = !toggledata">
+        <svg class="toggle"
+          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30">
+          <path class="toggle1" fill="#3e4043" d="M0 22.8h30V30H0z"/>
+          <path class="toggle2" fill="#3e4043" d="M0 11.4h30v7.2H0z"/>
+          <path class="toggle3" fill="#3e4043" d="M0 0h30v7.2H0z"/>
+        </svg>
+        전체 카테고리
+      </li>
+      <li class="menu">
+        <router-link class="move" :to="{ name: 'Menu'}">제품 보기</router-link>
+        <ul class="category">
+          <li><router-link class="move" :to="{ name: 'Egg'}">일반란</router-link></li>
+          <li><router-link class="move" :to="{ name: 'Begg'}">반숙란</router-link></li>
+          <li><router-link class="move" :to="{ name: 'Salad'}">샐러드</router-link></li>
+          <li><router-link class="move" :to="{ name: 'Megg'}">맥반석 계란</router-link></li>
+          <li><router-link class="move" :to="{ name: 'Sand'}">샌드위치</router-link></li>
+        </ul>
+      </li>
+      <li class="event">
+        <router-link class="move" :to="{ name: 'Eventp'}">이벤트</router-link>
+        <ul class="category">
+          <li><router-link class="move" :to="{ name: 'Pevent'}">진행 중인 이벤트</router-link></li>
+          <li><router-link class="move" :to="{ name: 'Levent'}">지난 이벤트</router-link></li>
+        </ul>
+      </li>
+      <li class="notice">
+        <router-link class="move" :to="{ name: 'Notice'}">공지사항</router-link>
+      </li>
+      <li class="cs">
+        <router-link class="move" :to="{ name: 'CS'}">고객센터</router-link>
+        <ul class="category">
+          <li><router-link class="move" :to="{ name: 'Location'}">가게 위치</router-link></li>
+          <li><router-link class="move" :to="{ name: 'Inquire'}">문의하기</router-link></li>
+          <li><router-link class="move" :to="{ name: 'Faq'}">FAQ</router-link></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="container cover" />
 </template>
 
 <script>
-export default {
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { gsap } from 'gsap'
 
+export default {
+  setup () {
+    const router = useRouter()
+    const goToProduct = () => {
+      router.push({
+        name: 'Product'
+      })
+    }
+    // 토글애니메이션
+    const toggledata = ref(false)
+    const toggle = () => {
+      if (toggledata.value === false) {
+        gsap.to('.category, .cover', {
+          opacity: 1,
+          ease: 'none',
+          duration: 0.2
+        })
+        gsap.to('.category, .cover', {
+          display: 'block'
+        })
+
+        gsap.to('.toggle1', {
+          yPercent: -158,
+          ease: 'none',
+          duration: 0.1
+        })
+        gsap.to('.toggle3', {
+          yPercent: 158,
+          ease: 'none',
+          duration: 0.1
+        }, '<')
+        gsap.to('.toggle2', {
+          opacity: 0,
+          ease: 'none',
+          duration: 0.1
+        }, '<')
+        gsap.to('.toggle3', {
+          rotate: -45,
+          transformOrigin: 'center center',
+          ease: 'none',
+          duration: 0.1
+        }, '>')
+        gsap.to('.toggle1', {
+          rotate: 45,
+          transformOrigin: 'center center',
+          ease: 'none',
+          duration: 0.1
+        }, '<')
+      } else if (toggledata.value === true) {
+        gsap.to('.category, .cover', {
+          opacity: 0,
+          ease: 'none',
+          duration: 0.15
+        })
+        gsap.to('.category, .cover', {
+          display: 'none'
+        })
+
+        gsap.to('.toggle1, .toggle3', {
+          rotate: 0,
+          transformOrigin: 'center center',
+          ease: 'none',
+          duration: 0.1
+        })
+        gsap.to('.toggle2', {
+          opacity: 1,
+          ease: 'none',
+          duration: 0.1
+        }, '>')
+        gsap.to('.toggle3, .toggle1', {
+          yPercent: 0,
+          ease: 'none',
+          duration: 0.1
+        }, '<')
+      }
+    }
+
+    return {
+      goToProduct, toggledata, toggle
+    }
+  }
 }
 </script>
 
@@ -182,7 +306,6 @@ export default {
   color: #ffffff;
   font-weight: 600;
   height: 50px;
-  width: 100%;
   display: flex;
   justify-content: right;
   .sign {
@@ -193,11 +316,13 @@ export default {
     }
   }
 }
-.secondnav {
+
+.firstnav {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
+  margin: 20px 0 60px;
   .logo {
+    cursor: pointer;
     position: relative;
     top: 20px;
     height: 60px;
@@ -211,6 +336,77 @@ export default {
       width: 45px;
       margin-left: 30px;
     }
+  }
+}
+
+.second {
+  padding-left: 0;
+  padding-right: 0;
+  .secondnav {
+    padding: 25px;
+    background: #f7f7f7;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    font-weight: 600;
+    .toggletext {
+      cursor: pointer;
+    }
+    .toggle {
+      height: 15px;
+    }
+    li {
+      a {
+        cursor: pointer;
+      }
+      .category {
+        list-style: none;
+        position: absolute;
+        margin: 24px 0 0 -33px;
+        z-index: 3;
+        li {
+          font-size: 0.95em;
+          font-weight: 500;
+          margin-top: 20px;
+        }
+      }
+      a {
+        color: #000000;
+      }
+    }
+  }
+}
+.cover {
+  width: 100%;
+  background: #f7f7f7;
+  height: 200px;
+  z-index: 2;
+  position: absolute;
+  transform: translate(-50%);
+  left: 50%;
+}
+
+.category, .cover {
+  opacity: 0;
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .auth {
+    display: none;
+  }
+  .logo {
+    position: relative;
+    transform: translate(-50%, 0);
+    left: 50%;
+    margin-top: -20px;
+  }
+  .secondnav {
+    margin-top: -40px;
+    font-size: 0.7em;
+  }
+  .cover {
+    height: 165px;
   }
 }
 </style>

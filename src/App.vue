@@ -13,5 +13,13 @@
   width: 100%;
   height: 100%;
 }
-
+a.router-link-active {
+  padding-bottom: 5px;
+  border-bottom: 3px solid #6868ff;
+}
+a:link,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
 </style>

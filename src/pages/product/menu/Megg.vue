@@ -1,7 +1,6 @@
 <template>
-  <!-- 메인 페이지 -->
   <div class="container">
-    <h1>메인 페이지(슬라이드)</h1>
+    <h1>맥반석계란</h1>
   </div>
 </template>
 
