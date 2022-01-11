@@ -379,7 +379,7 @@ export default {
 .cover {
   width: 100%;
   background: #f7f7f7;
-  height: 200px;
+  height: 220px;
   z-index: 2;
   position: absolute;
   transform: translate(-50%);
@@ -406,7 +406,7 @@ export default {
     font-size: 0.7em;
   }
   .cover {
-    height: 165px;
+    height: 175px;
   }
 }
 </style>
