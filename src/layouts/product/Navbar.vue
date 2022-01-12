@@ -181,6 +181,7 @@
       <li class="menu">
         <router-link class="move" :to="{ name: 'Menu'}">제품 보기</router-link>
         <ul class="category">
+          <!-- 호버시 크게, 색 바꾸기 -->
           <li><router-link class="move" :to="{ name: 'Egg'}">일반란</router-link></li>
           <li><router-link class="move" :to="{ name: 'Begg'}">반숙란</router-link></li>
           <li><router-link class="move" :to="{ name: 'Salad'}">샐러드</router-link></li>
@@ -358,6 +359,7 @@ export default {
     li {
       a {
         cursor: pointer;
+        color: #000000;
       }
       .category {
         list-style: none;
@@ -368,17 +370,17 @@ export default {
           font-size: 0.95em;
           font-weight: 500;
           margin-top: 20px;
+          a {
+            color: white;
+          }
         }
-      }
-      a {
-        color: #000000;
       }
     }
   }
 }
 .cover {
   width: 100%;
-  background: #f7f7f7;
+  background: rgba(0, 0, 0, 0.9);
   height: 220px;
   z-index: 2;
   position: absolute;

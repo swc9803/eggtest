@@ -1,6 +1,7 @@
 <template>
   <!-- 메인 페이지 -->
-  <div class="container">
+  <!-- 슬라이드 -->
+  <div class="container ">
     <div class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target=".carousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -62,6 +63,27 @@
       </button>
     </div>
   </div>
+  <!-- notice event -->
+  <div class="container mainnotice">
+    <div class="notice">
+      <h4>NOTICE</h4>
+      <ul class="noticelist">
+        <li>[21.12.21]일부 메뉴 단종 안내</li>
+        <li>[21.12.21]일부 메뉴 단종 안내</li>
+        <li>[21.12.21]일부 메뉴 단종 안내</li>
+      </ul>
+      <h5 class="more">More <i class="fas fa-plus-circle"></i></h5>
+    </div>
+    <div class="event">
+      <h4>EVENT</h4>
+      <ul class="eventlist">
+        <li>[22.01.10 ~ 22.01.26] 엽떡 인증샷 이벤트 </li>
+        <li>[22.01.10 ~ 22.01.26] 엽떡 인증샷 이벤트 </li>
+        <li>[22.01.10 ~ 22.01.26] 엽떡 인증샷 이벤트 </li>
+      </ul>
+      <h5 class="more">More <i class="fas fa-plus-circle"></i></h5>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -71,15 +93,33 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  .carousel {
-    width: 70%;
-    position: relative;
-    transform: translate(-50%);
-    left: 50%;
-    .carousel-item {
-      transition: transform .5s ease, opacity .5s ease-out
-    }
+.slide {
+  width: 70%;
+  position: relative;
+  transform: translate(-50%);
+  left: 50%;
+  .carousel-item {
+    transition: transform .5s ease, opacity .5s ease-out
+  }
+}
+.mainnotice {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  .notice {
+    flex: 0 0 50%;
+  }
+  .event {
+    flex: 0 0 50%;
+  }
+  .more {
+    display: inline-block;
+    cursor: pointer;
   }
 }
 </style>
