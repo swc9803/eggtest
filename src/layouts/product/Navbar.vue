@@ -315,11 +315,10 @@ export default {
     display: flex;
     position: relative;
     top: 20px;
-    .auth {
-      display: flex;
-      position: relative;
-      top: 20px;
+
       p {
+        position: relative;
+        top: 20px;
         display: inline-block;
         cursor: pointer;
         margin-bottom: 3rem;
@@ -340,7 +339,7 @@ export default {
       i {
         margin-right: 5px;
       }
-    }
+
     .egg {
       cursor: pointer;
       width: 45px;
@@ -407,15 +406,23 @@ export default {
   display: none;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   .logo {
     position: relative;
     transform: translate(-50%, 0);
     left: 50%;
     margin-top: -20px;
   }
+  .menuegg {
+    div {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
   .secondnav {
-    margin-top: -40px;
+    margin-top: -10px;
     font-size: 0.7em;
   }
   .cover {

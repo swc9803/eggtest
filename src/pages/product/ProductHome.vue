@@ -120,7 +120,7 @@ export default {
   }
 }
 .mainnotice {
-  width: 50%;
+  width: 55%;
   display: flex;
   flex-wrap: wrap;
   margin-top: 50px;
@@ -143,6 +143,14 @@ export default {
   .more {
     display: inline-block;
     cursor: pointer;
+  }
+}
+@media screen and (max-width: 768px) {
+  .mainnotice {
+    display: block;
+    .notice {
+      margin-bottom: 40px;
+    }
   }
 }
 </style>
