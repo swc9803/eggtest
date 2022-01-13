@@ -372,6 +372,10 @@ export default {
           margin-top: 20px;
           a {
             color: white;
+            transition: .3s ease-out;
+          }
+          a:hover {
+            color: yellow;
           }
         }
       }
@@ -386,6 +390,7 @@ export default {
   position: absolute;
   transform: translate(-50%);
   left: 50%;
+  margin-top: -8px;
 }
 
 .category, .cover {
