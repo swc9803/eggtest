@@ -3,7 +3,7 @@
   <div class="container">
     <div class="firstnav">
       <svg class="logo" @click="goToProduct"
-      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 212 104">
+        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 212 104">
         <g id="logo">
           <g id="top">
             <g id="Rectangle 31" filter="url(#top1_i_45_357)">
@@ -16,18 +16,18 @@
           <g id="egg">
             <path id="foundation" fill="#FFE7D1" d="M58.7 67.7c0 17.9-10.5 24.6-23.4 24.6-12.9 0-23.3-6.7-23.3-24.6 0-18 10.4-37.3 23.3-37.3 13 0 23.4 19.3 23.4 37.3Z"/>
             <path id="Union" fill="#fff" fill-rule="evenodd" d="M42.7 37.7a1 1 0 0 0 .3 1.4c5.4 3.8 7 8.3 8.4 13.3.2.5.9.8 1.3.4.3-.2.4-.5.3-.8-1.3-5.5-2.7-10.5-9-14.5a1 1 0 0 0-1.3.2Zm10.7 20a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.5Z" clip-rule="evenodd"/>
+            <text xml:space="preserve" id="S" fill="#CA3939" font-family="BM JUA_TTF" font-size="20" letter-spacing="0em" style="white-space:pre"><tspan x="29.8" y="56.6">S</tspan></text>
           </g>
           <g id="egg_2">
             <path id="foundation_2" fill="#FFD0A5" d="M129.4 67.7c0 17.9-10.5 24.6-23.4 24.6-13 0-23.4-6.7-23.4-24.6 0-18 10.5-37.3 23.4-37.3 13 0 23.4 19.3 23.4 37.3Z"/>
             <path id="Union_2" fill="#fff" fill-rule="evenodd" d="M113.4 37.7a1 1 0 0 0 .2 1.4c5.4 3.8 7 8.3 8.5 13.3a.8.8 0 0 0 1.6-.4c-1.3-5.5-2.7-10.5-9-14.5a1 1 0 0 0-1.3.2Zm10.7 20a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.5Z" clip-rule="evenodd"/>
+            <text xml:space="preserve" id="G" fill="#CA3939" font-family="BM JUA_TTF" font-size="20" letter-spacing="0em" style="white-space:pre"><tspan x="100.5" y="56.6">G</tspan></text>
           </g>
           <g id="egg_3">
             <path id="foundation_3" fill="#E3A974" d="M200 67.7c0 17.9-10.4 24.6-23.3 24.6-13 0-23.4-6.7-23.4-24.6 0-18 10.5-37.3 23.4-37.3 12.9 0 23.3 19.3 23.3 37.3Z"/>
             <path id="Union_3" fill="#fff" fill-rule="evenodd" d="M184 37.7a1 1 0 0 0 .3 1.4c5.4 3.8 7 8.3 8.4 13.3a.8.8 0 0 0 1.6-.4c-1.3-5.5-2.7-10.5-9-14.5a1 1 0 0 0-1.2.2Zm10.7 20a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.5Z" clip-rule="evenodd"/>
+            <text xml:space="preserve" id="G_2" fill="#CA3939" font-family="BM JUA_TTF" font-size="20" letter-spacing="0em" style="white-space:pre"><tspan x="171.1" y="56.6">G</tspan></text>
           </g>
-          <text xml:space="preserve" id="S" fill="#CA3939" font-family="BM JUA_TTF" font-size="20" letter-spacing="0em" style="white-space:pre"><tspan x="29.8" y="56.6">S</tspan></text>
-          <text xml:space="preserve" id="E" fill="#CA3939" font-family="BM JUA_TTF" font-size="20" letter-spacing="0em" style="white-space:pre"><tspan x="101.1" y="56.6">E</tspan></text>
-          <text xml:space="preserve" id="G" fill="#CA3939" font-family="BM JUA_TTF" font-size="20" letter-spacing="0em" style="white-space:pre"><tspan x="171.1" y="56.6">G</tspan></text>
           <g id="bottom">
             <g id="Rectangle 32" filter="url(#bottom1_i_45_357)">
               <rect width="212" height="9.8" y="64.1" fill="#C4C4C4" rx="4.9"/>
