@@ -1,9 +1,4 @@
 <template>
-  <!-- 로그인 회원가입 v if 모바일 안보이게, 로그인한 유저는 안보이게 -->
-  <div class="auth">
-    <div class="sign"><p><i class="fas fa-sign-in-alt"></i>로그인</p></div>
-    <div class="sign"><p><i class="fas fa-user-plus"></i>회원가입</p></div>
-  </div>
   <!-- 로고 마이페이지 -->
   <div class="container">
     <div class="firstnav">
@@ -106,6 +101,10 @@
         </defs>
       </svg>
       <div class="menuegg">
+        <div class="auth">
+          <p class="sign"><i class="fas fa-sign-in-alt"></i>로그인</p>
+          <p><i class="fas fa-user-plus"></i>회원가입</p>
+        </div>
         <div class="mypage egg">
           <svg class="egguser" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 88 117">
             <g>
@@ -302,26 +301,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.auth {
-  background: linear-gradient(45deg, #c9c9ff, #6868ff);
-  color: #ffffff;
-  font-weight: 600;
-  height: 50px;
-  display: flex;
-  justify-content: right;
-  .sign {
-    line-height: 50px;
-    margin-right: 5%;
-    i {
-      margin-right: 7px;
-    }
-  }
-}
-
 .firstnav {
   display: flex;
   justify-content: space-between;
-  margin: 20px 0 60px;
+  margin: 20px 0 45px;
   .logo {
     cursor: pointer;
     position: relative;
@@ -332,6 +315,32 @@ export default {
     display: flex;
     position: relative;
     top: 20px;
+    .auth {
+      display: flex;
+      position: relative;
+      top: 20px;
+      p {
+        display: inline-block;
+        cursor: pointer;
+        margin-bottom: 3rem;
+        margin-right: 5px;
+      }
+      p:hover {
+        color: rgb(77, 77, 0);
+      }
+      .sign::after {
+        content: '';
+        display: inline-block;
+        width: 1px;
+        height: 10px;
+        margin: 7px 5px 0 8px;
+        background-color: #ddd;
+        vertical-align: top;
+      }
+      i {
+        margin-right: 5px;
+      }
+    }
     .egg {
       cursor: pointer;
       width: 45px;
@@ -399,9 +408,6 @@ export default {
 }
 
 @media screen and (max-width: 480px) {
-  .auth {
-    display: none;
-  }
   .logo {
     position: relative;
     transform: translate(-50%, 0);

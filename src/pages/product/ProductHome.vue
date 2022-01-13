@@ -66,29 +66,46 @@
   <!-- notice event -->
   <div class="container mainnotice">
     <div class="notice">
-      <h4>NOTICE</h4>
+      <h4 @click="moveToNotice">NOTICE</h4>
       <ul class="noticelist">
         <li>[21.12.21]일부 메뉴 단종 안내</li>
         <li>[21.12.21]일부 메뉴 단종 안내</li>
         <li>[21.12.21]일부 메뉴 단종 안내</li>
       </ul>
-      <h5 class="more">More <i class="fas fa-plus-circle"></i></h5>
+      <h5 class="more" @click="moveToNotice">More <i class="fas fa-plus-circle"></i></h5>
     </div>
     <div class="event">
-      <h4>EVENT</h4>
+      <h4 @click="moveToEvent">EVENT</h4>
       <ul class="eventlist">
         <li>[22.01.10 ~ 22.01.26] 엽떡 인증샷 이벤트 </li>
         <li>[22.01.10 ~ 22.01.26] 엽떡 인증샷 이벤트 </li>
         <li>[22.01.10 ~ 22.01.26] 엽떡 인증샷 이벤트 </li>
       </ul>
-      <h5 class="more">More <i class="fas fa-plus-circle"></i></h5>
+      <h5 class="more" @click="moveToEvent">More <i class="fas fa-plus-circle"></i></h5>
     </div>
   </div>
 </template>
 
 <script>
-export default {
+import { useRouter } from 'vue-router'
 
+export default {
+  setup () {
+    const router = useRouter()
+    const moveToNotice = () => {
+      router.push({
+        name: 'Notice'
+      })
+    }
+    const moveToEvent = () => {
+      router.push({
+        name: 'Eventp'
+      })
+    }
+    return {
+      moveToNotice, moveToEvent
+    }
+  }
 }
 </script>
 
@@ -116,6 +133,12 @@ export default {
   }
   .event {
     flex: 0 0 50%;
+  }
+  div {
+    h4 {
+      display: inline-block;
+      cursor: pointer;
+    }
   }
   .more {
     display: inline-block;
