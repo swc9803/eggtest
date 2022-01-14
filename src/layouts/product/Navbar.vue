@@ -301,49 +301,49 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.firstnav {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0 45px;
-  .logo {
-    cursor: pointer;
-    position: relative;
-    top: 20px;
-    height: 60px;
-  }
-  .menuegg {
+.container {
+  .firstnav {
     display: flex;
-    position: relative;
-    top: 20px;
-
-      p {
-        position: relative;
-        top: 20px;
-        display: inline-block;
-        cursor: pointer;
-        margin-bottom: 3rem;
-        margin-right: 5px;
-      }
-      p:hover {
-        color: rgb(77, 77, 0);
-      }
-      .sign::after {
-        content: '';
-        display: inline-block;
-        width: 1px;
-        height: 10px;
-        margin: 7px 5px 0 8px;
-        background-color: #ddd;
-        vertical-align: top;
-      }
-      i {
-        margin-right: 5px;
-      }
-
-    .egg {
+    justify-content: space-between;
+    margin: 20px 0 45px;
+    .logo {
       cursor: pointer;
-      width: 45px;
-      margin-left: 30px;
+      position: relative;
+      top: 20px;
+      height: 60px;
+    }
+    .menuegg {
+      display: flex;
+      position: relative;
+      top: 20px;
+        p {
+          position: relative;
+          top: 20px;
+          display: inline-block;
+          cursor: pointer;
+          margin-bottom: 3rem;
+          margin-right: 5px;
+        }
+        p:hover {
+          color: rgb(77, 77, 0);
+        }
+        .sign::after {
+          content: '';
+          display: inline-block;
+          width: 1px;
+          height: 10px;
+          margin: 7px 5px 0 8px;
+          background-color: #ddd;
+          vertical-align: top;
+        }
+        i {
+          margin-right: 5px;
+        }
+      .egg {
+        cursor: pointer;
+        width: 45px;
+        margin-left: 30px;
+      }
     }
   }
 }
@@ -353,7 +353,7 @@ export default {
   padding-right: 0;
   .secondnav {
     padding: 25px;
-    background: #f7f7f7;
+    background: #ffc457;
     display: flex;
     justify-content: space-between;
     list-style: none;
