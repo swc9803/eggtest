@@ -84,6 +84,7 @@
       <h5 class="more" @click="moveToEvent">More <i class="fas fa-plus-circle"></i></h5>
     </div>
   </div>
+
   <!-- 메뉴 소개 -->
   <div class="container-fuild menudes">
     <h2>SGG MENU</h2>
@@ -91,7 +92,7 @@
     <div class="container">
       <div class="menucard menucard1">
         <div class="morecover morecover1">
-          <p>일반란</p>
+          <p>계란</p>
           <div class="morebox morebox1" @click="moveToEgg">
             <h3>More</h3>
           </div>
@@ -127,12 +128,43 @@
       </div>
     </div>
   </div>
+
+  <!-- information -->
+  <h2 class="infotext">SGG INFORMATION</h2>
+  <div class="container info">
+    <div class="location">
+      <img src="@/assets/map.png">
+      <h2>Location</h2>
+      <p class="hideinfo1">모든 가게의 위치를 확인해보세요.</p>
+      <div class="infomore" @click="moveToLocation">
+        <h4>More</h4>
+      </div>
+    </div>
+    <div class="recipe">
+      <img src="@/assets/recipe.png">
+      <h2>Recipe</h2>
+      <p class="hideinfo2">쉽게 따라할 수 있는 조리법입니다.</p>
+      <div class="infomore" @click="moveToFaq">
+        <h4>More</h4>
+      </div>
+    </div>
+    <div class="faq">
+      <img src="@/assets/faq.png">
+      <h2>FAQ</h2>
+      <p class="hideinfo3">고객님께서 자주 묻는 질문들입니다.</p>
+      <div class="infomore" @click="moveToFaq">
+        <h4>More</h4>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 export default {
   setup () {
@@ -165,6 +197,16 @@ export default {
     const moveToSand = () => {
       router.push({
         name: 'Sand'
+      })
+    }
+    const moveToLocation = () => {
+      router.push({
+        name: 'Location'
+      })
+    }
+    const moveToFaq = () => {
+      router.push({
+        name: 'Faq'
       })
     }
     onMounted(() => {
@@ -284,9 +326,20 @@ export default {
         morecoverhover4.reverse()
         moretexthover4.reverse()
       })
+
+      // info 스크롤 시 보이기
+      const showInfo = gsap.timeline()
+      ScrollTrigger.create({
+        animation: showInfo,
+        trigger: '.info',
+        start: 'top 80%'
+      })
+      showInfo.from('.info', {
+        yPercent: 10, opacity: 0, duration: 1, ease: 'none'
+      })
     })
     return {
-      moveToNotice, moveToEvent, moveToEgg, moveToBegg, moveToMegg, moveToSand
+      moveToNotice, moveToEvent, moveToEgg, moveToBegg, moveToMegg, moveToSand, moveToLocation, moveToFaq
     }
   }
 }
@@ -333,6 +386,7 @@ export default {
 .menudes {
   position: relative;
   h2 {
+    word-spacing: 10px;
     color: white;
     text-align: center;
     padding-top: 40px;
@@ -371,9 +425,6 @@ export default {
         width: 100%;
         height: 170px;
         background: #AE5E00;
-        p {
-          color: #AE5E00;
-        }
         .morebox {
           cursor: pointer;
           position: relative;
@@ -391,6 +442,9 @@ export default {
             line-height: 40px;
           }
         }
+        p {
+          color: #AE5E00;
+        }
       }
     }
   }
@@ -406,6 +460,57 @@ export default {
   filter: blur(1px);
 }
 
+.infotext {
+  word-spacing: 10px;
+  text-align: center;
+  margin: 60px 0 60px 0;
+}
+.info {
+  display: flex;
+  justify-content: center;
+  div {
+    position: relative;
+    top: 0;
+    padding: 20px 20px 20px 20px;
+    margin: 0 20px 0 20px;
+    text-align: center;
+    border: 1px rgb(255, 255, 255) solid;
+    transition: 0.4s ease-out;
+    img {
+      width: 90%;
+      margin-top: 5%;
+    }
+    h2 {
+      margin: 20px 0 20px 0;
+    }
+    .hideinfo1, .hideinfo2, .hideinfo3 {
+      cursor: default;
+      word-break: keep-all;
+      opacity: 0;
+      transition: .3s ease-out;
+    }
+    .infomore {
+      cursor: pointer;
+      position: relative;
+      border: #AE5E00 2px solid;
+      border-radius: 4px;
+      h4 {
+        word-break: keep-all;
+        font-size: 1.2em;
+        font-weight: 600;
+        color: #AE5E00;
+      }
+    }
+  }
+  .location:hover, .recipe:hover, .faq:hover {
+    border: 1px rgb(55, 55, 55) solid;
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 2px;
+    top: -10px;
+  }
+  .location:hover > .hideinfo1, .recipe:hover > .hideinfo2, .faq:hover > .hideinfo3 {
+    opacity: 1;
+  }
+}
 @media screen and (max-width: 768px) {
   .mainnotice {
     display: block;
@@ -413,14 +518,20 @@ export default {
       margin-bottom: 40px;
     }
   }
+  .info {
+    div {
+      padding: 10px 10px 10px 10px;
+      margin: 0 8px 0 8px;
+    }
+  }
 }
 
 @media screen and (max-width: 480px) {
   .menudes {
     .container {
-      .menu {
+      .menucard {
         p {
-          font-size: 0.8em;
+          font-size: 0.9em;
         }
       }
     }

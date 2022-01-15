@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <h1>일반란</h1>
-    <h1>일반란</h1>
+    <h1>계란</h1>
+    <h1>계란</h1>
   </div>
 </template>
 

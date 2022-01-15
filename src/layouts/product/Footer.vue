@@ -15,15 +15,6 @@
   </div>
 </template>
 
-<script>
-
-export default {
-  setup () {
-
-  }
-}
-</script>
-
 <style lang="scss" scoped>
 hr {
   margin-bottom: 40px;
@@ -54,9 +45,14 @@ hr {
   justify-content: center;
   line-height: 40px;
   .title {
+    word-break: keep-all;
+    line-height: 1.7em;
     color: rgb(90, 90, 90);
     margin: 0 10px 0 20px;
     font-weight: 600;
+  }
+  p {
+    line-height: 1.7em;
   }
 }
 .test {

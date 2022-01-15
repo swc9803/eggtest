@@ -180,8 +180,7 @@
       <li class="menu">
         <router-link class="move" :to="{ name: 'Menu'}">제품 보기</router-link>
         <ul class="category">
-          <!-- 호버시 크게, 색 바꾸기 -->
-          <li><router-link class="move" :to="{ name: 'Egg'}">일반란</router-link></li>
+          <li><router-link class="move" :to="{ name: 'Egg'}">계란</router-link></li>
           <li><router-link class="move" :to="{ name: 'Begg'}">반숙란</router-link></li>
           <li><router-link class="move" :to="{ name: 'Salad'}">샐러드</router-link></li>
           <li><router-link class="move" :to="{ name: 'Megg'}">맥반석 계란</router-link></li>
