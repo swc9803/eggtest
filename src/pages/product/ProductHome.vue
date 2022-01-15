@@ -294,7 +294,7 @@ export default {
 
 <style lang="scss" scoped>
 .slide {
-  width: 70%;
+  width: 80%;
   position: relative;
   transform: translate(-50%);
   left: 50%;

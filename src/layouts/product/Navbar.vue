@@ -1,6 +1,6 @@
 <template>
   <!-- 로고 마이페이지 -->
-  <div class="container">
+  <nav class="logobar">
     <div class="firstnav">
       <svg class="logo" @click="goToProduct"
         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 212 104">
@@ -163,7 +163,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </nav>
 
   <!-- 카테고리 네브바 -->
   <div class="container second">
@@ -215,6 +215,8 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 export default {
   setup () {
@@ -301,7 +303,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.logobar {
+  position: fixed;
+  z-index: 5;
+  background: #ffffff;
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+  box-shadow: 0px 2px 3px rgb(179, 179, 179);
   .firstnav {
     display: flex;
     justify-content: space-between;
@@ -349,9 +358,9 @@ export default {
 }
 
 .second {
-  padding-left: 0;
-  padding-right: 0;
+  padding: 130px 0 20px 0;
   .secondnav {
+    margin-top: 30px;
     padding: 25px;
     background: #ffc457;
     display: flex;
@@ -407,16 +416,24 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
-  .logo {
+  .logobar {
     position: relative;
-    transform: translate(-50%, 0);
-    left: 50%;
-    margin-top: -20px;
+    box-shadow: none;
+    .logo {
+      transform: translate(-50%, 0);
+      left: 50%;
+      margin-top: -20px;
+    }
   }
   .menuegg {
     div {
       display: none;
     }
+  }
+
+  .second {
+    padding: 0;
+    // margin-top: 120px;
   }
 }
 
