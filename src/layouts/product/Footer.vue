@@ -1,95 +1,25 @@
 <template>
   <div>
     <hr>
-    <div class="container">
-      <p class="space">Wanna connect? <i class="fas fa-phone" /> via:</p>
-      <div class="connect">
-        <a class="mail mail1" href="mailto:swc9803@naver.com">
-          <i class="fas fa-envelope" aria-hidden="true" />
-        </a>
-        <a class="mail mail2" href="mailto:swc9803@naver.com">
-          <i class="fas fa-address-card" aria-hidden="true" />
-        </a>
-        <a class="mail mail3" href="mailto:swc9803@naver.com">
-          <i class="fab fa-google" aria-hidden="true" />
-        </a>
-      </div>
-      <p class="caption">Built by Sungwoo</p>
+    <div class="etc">
+      <p>이용약관</p>
+      <p>개인정보처리방침</p>
+      <p>이메일무단수집거부</p>
     </div>
+    <div class="call">
+      <p class="title">고객 상담 전화</p> <p>1661-1234</p>
+      <p class="title">상담 가능 시간</p> <p>월~금, 공휴일 제외 10:00 ~ 18:30 (점심시간 12:00 ~ 13:00)</p>
+    </div>
+    <p class="test"><i class="fas fa-exclamation-triangle" /> 본 사이트는 포트폴리오 용으로 제작되었으며 실존하지 않는 가게입니다.</p>
+    <p class="caption">Built by Sungwoo</p>
   </div>
 </template>
 
 <script>
-import { onMounted } from 'vue'
-import { gsap } from 'gsap'
 
 export default {
   setup () {
-    // connect 호버 이벤트
-    onMounted(() => {
-      const mailHover1 = gsap.from('.mail1', {
-        opacity: 0.4,
-        duration: 0.4,
-        ease: 'none'
-      })
-      const mailHoverShadow1 = gsap.to('.mail1', {
-        boxShadow: '5px 5px 10px rgba(0, 0, 0, .2)',
-        duration: 0.2,
-        ease: 'none'
-      })
-      mailHover1.pause()
-      mailHoverShadow1.pause()
-      document.querySelector('.mail1').addEventListener('mouseenter', function () {
-        mailHover1.play()
-        mailHoverShadow1.play()
-      })
-      document.querySelector('.mail1').addEventListener('mouseleave', function () {
-        mailHover1.reverse()
-        mailHoverShadow1.reverse()
-      })
 
-      const mailHover2 = gsap.from('.mail2', {
-        opacity: 0.4,
-        duration: 0.4,
-        ease: 'none'
-      })
-      const mailHoverShadow2 = gsap.to('.mail2', {
-        boxShadow: '5px 5px 10px rgba(0, 0, 0, .2)',
-        duration: 0.2,
-        ease: 'none'
-      })
-      mailHover2.pause()
-      mailHoverShadow2.pause()
-      document.querySelector('.mail2').addEventListener('mouseenter', function () {
-        mailHover2.play()
-        mailHoverShadow2.play()
-      })
-      document.querySelector('.mail2').addEventListener('mouseleave', function () {
-        mailHover2.reverse()
-        mailHoverShadow2.reverse()
-      })
-
-      const mailHover3 = gsap.from('.mail3', {
-        opacity: 0.4,
-        duration: 0.4,
-        ease: 'none'
-      })
-      const mailHoverShadow3 = gsap.to('.mail3', {
-        boxShadow: '5px 5px 10px rgba(0, 0, 0, .2)',
-        duration: 0.2,
-        ease: 'none'
-      })
-      mailHover3.pause()
-      mailHoverShadow3.pause()
-      document.querySelector('.mail3').addEventListener('mouseenter', function () {
-        mailHover3.play()
-        mailHoverShadow3.play()
-      })
-      document.querySelector('.mail3').addEventListener('mouseleave', function () {
-        mailHover3.reverse()
-        mailHoverShadow3.reverse()
-      })
-    })
   }
 }
 </script>
@@ -98,33 +28,63 @@ export default {
 hr {
   margin-bottom: 40px;
 }
-.container {
+.etc {
+  position: relative;
+  transform: translate(-50%);
+  left: 50%;
+  width: 500px;
   display: flex;
-  flex-direction: column;
-  .space {
-    font-size: 1rem;
-    line-height: 1.5rem;
+  p {
+    flex: 1;
+    font-size: 0.95em;
+    cursor: pointer;
+    color: rgb(90, 90, 90);
   }
-  .connect {
-    display: flex;
-    justify-content: center;
-    font-size: 30px;
-    line-height: 70px;
-    margin-top: -20px;
-    .mail {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      margin: 1.5rem;
-      i {
-        color: black;
-      }
+  p:hover {
+    color: black;
+    transition: .3s ease-out;
+  }
+}
+.call {
+  position: relative;
+  transform: translate(-50%);
+  left: 50%;
+  display: flex;
+  font-size: 0.9em;
+  justify-content: center;
+  line-height: 40px;
+  .title {
+    color: rgb(90, 90, 90);
+    margin: 0 10px 0 20px;
+    font-weight: 600;
+  }
+}
+.test {
+  display: inline-block;
+  opacity: 0.8;
+  padding-top: 0.4rem;
+  font-size: 0.8rem;
+  border-bottom: 1px rgb(121, 121, 121) solid;
+  i {
+    color: orange;
+  }
+}
+
+.caption {
+  padding-bottom: 1rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+@media screen and (max-width: 768px) {
+  .etc {
+    p {
+      font-size: 0.7em;
     }
   }
-  .caption {
-    padding-bottom: 1rem;
-    font-size: 0.7rem;
-    opacity: 0.8;
+  .call {
+    p {
+      font-size: 0.7em;
+    }
   }
 }
 </style>>

@@ -337,6 +337,7 @@ export default {
           color: rgb(77, 77, 0);
         }
         .sign::after {
+          cursor: default;
           content: '';
           display: inline-block;
           width: 1px;
@@ -407,7 +408,7 @@ export default {
   position: absolute;
   transform: translate(-50%);
   left: 50%;
-  margin-top: -8px;
+  margin-top: -30px;
 }
 
 .category, .cover {

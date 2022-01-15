@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Location</h1>
+    <h1>찾아오시는길</h1>
   </div>
 </template>
 
