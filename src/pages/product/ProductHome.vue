@@ -332,7 +332,7 @@ export default {
       ScrollTrigger.create({
         animation: showInfo,
         trigger: '.info',
-        start: 'top 80%'
+        start: 'top 65%'
       })
       showInfo.from('.info', {
         yPercent: 10, opacity: 0, duration: 1, ease: 'none'

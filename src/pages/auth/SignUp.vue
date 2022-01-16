@@ -1,12 +1,12 @@
 <template>
   <div>
-    <router-view />
+    사인업
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ProductView'
+
 }
 </script>
 
