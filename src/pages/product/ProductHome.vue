@@ -176,7 +176,7 @@ export default {
     }
     const moveToEvent = () => {
       router.push({
-        name: 'Eventp'
+        name: 'Pevent'
       })
     }
     const moveToEgg = () => {
@@ -534,6 +534,12 @@ export default {
           font-size: 0.9em;
         }
       }
+    }
+  }
+  .info {
+    width: 350px;
+    div {
+      margin: 0;
     }
   }
 }

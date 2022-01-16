@@ -44,6 +44,7 @@ hr {
   font-size: 0.9em;
   justify-content: center;
   line-height: 40px;
+  word-break: keep-all;
   .title {
     word-break: keep-all;
     line-height: 1.7em;
@@ -71,6 +72,7 @@ hr {
   font-size: 0.8rem;
   opacity: 0.8;
 }
+
 @media screen and (max-width: 768px) {
   .etc {
     p {
@@ -81,6 +83,15 @@ hr {
     p {
       font-size: 0.7em;
     }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .etc {
+    width: 350px;
+  }
+  .test {
+    width: 340px;
   }
 }
 </style>>
