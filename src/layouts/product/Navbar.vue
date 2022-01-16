@@ -198,7 +198,7 @@
         <router-link class="move" :to="{ name: 'Notice'}">공지사항</router-link>
       </li>
       <li class="cs">
-        <router-link class="move" :to="{ name: 'CS'}">고객센터</router-link>
+        <router-link class="move" :to="{ name: 'Faq'}">고객센터</router-link>
         <ul class="category">
           <li><router-link class="move" :to="{ name: 'Location'}">가게 위치</router-link></li>
           <li><router-link class="move" :to="{ name: 'Inquire'}">문의하기</router-link></li>

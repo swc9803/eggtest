@@ -12,7 +12,6 @@ import Sand from '@/pages/product/menu/Sand'
 import Pevent from '@/pages/product/event/Pevent'
 import Levent from '@/pages/product/event/Levent'
 import Notice from '@/pages/product/notice/Notice'
-import CS from '@/pages/product/cs/CS'
 import Location from '@/pages/product/cs/Location'
 import Inquire from '@/pages/product/cs/Inquire'
 import Faq from '@/pages/product/cs/Faq'
@@ -79,11 +78,6 @@ const routes = [
         path: '/notice',
         name: 'Notice',
         component: Notice
-      },
-      {
-        path: '/cs',
-        name: 'CS',
-        component: CS
       },
       {
         path: '/cs/location',
