@@ -4,13 +4,11 @@ import ProductLayout from '@/layouts/product/Index'
 import AuthenticationLayout from '@/layouts/authentication/Index'
 import Home from '@/pages/Home'
 import Product from '@/pages/product/ProductHome'
-import Menu from '@/pages/product/menu/Menu'
 import Egg from '@/pages/product/menu/Egg'
 import Begg from '@/pages/product/menu/Begg'
 import Megg from '@/pages/product/menu/Megg'
 import Salad from '@/pages/product/menu/Salad'
 import Sand from '@/pages/product/menu/Sand'
-import Eventp from '@/pages/product/event/Eventp'
 import Pevent from '@/pages/product/event/Pevent'
 import Levent from '@/pages/product/event/Levent'
 import Notice from '@/pages/product/notice/Notice'
@@ -43,11 +41,6 @@ const routes = [
         component: Product
       },
       {
-        path: '/menu',
-        name: 'Menu',
-        component: Menu
-      },
-      {
         path: '/menu/egg',
         name: 'Egg',
         component: Egg
@@ -71,11 +64,6 @@ const routes = [
         path: '/menu/sand',
         name: 'Sand',
         component: Sand
-      },
-      {
-        path: '/eventp',
-        name: 'Eventp',
-        component: Eventp
       },
       {
         path: '/event/pevent',

@@ -178,7 +178,7 @@
         전체 카테고리
       </li>
       <li class="menu">
-        <router-link class="move" :to="{ name: 'Menu'}">제품 보기</router-link>
+        <router-link class="move" :to="{ name: 'Egg'}">제품 보기</router-link>
         <ul class="category">
           <li><router-link class="move" :to="{ name: 'Egg'}">계란</router-link></li>
           <li><router-link class="move" :to="{ name: 'Begg'}">반숙란</router-link></li>
@@ -188,7 +188,7 @@
         </ul>
       </li>
       <li class="event">
-        <router-link class="move" :to="{ name: 'Eventp'}">이벤트</router-link>
+        <router-link class="move" :to="{ name: 'Pevent'}">이벤트</router-link>
         <ul class="category">
           <li><router-link class="move" :to="{ name: 'Pevent'}">진행 중인 이벤트</router-link></li>
           <li><router-link class="move" :to="{ name: 'Levent'}">지난 이벤트</router-link></li>

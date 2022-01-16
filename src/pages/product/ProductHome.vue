@@ -491,10 +491,10 @@ export default {
     }
     .infomore {
       cursor: pointer;
-      position: relative;
       border: #AE5E00 2px solid;
       border-radius: 4px;
       h4 {
+        margin-top: 6px;
         word-break: keep-all;
         font-size: 1.2em;
         font-weight: 600;
