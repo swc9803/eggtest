@@ -182,8 +182,8 @@
         <ul class="category">
           <li><router-link class="move" :to="{ name: 'Egg'}">계란</router-link></li>
           <li><router-link class="move" :to="{ name: 'Begg'}">반숙란</router-link></li>
-          <li><router-link class="move" :to="{ name: 'Salad'}">샐러드</router-link></li>
           <li><router-link class="move" :to="{ name: 'Megg'}">맥반석 계란</router-link></li>
+          <li><router-link class="move" :to="{ name: 'Salad'}">샐러드</router-link></li>
           <li><router-link class="move" :to="{ name: 'Sand'}">샌드위치</router-link></li>
         </ul>
       </li>
