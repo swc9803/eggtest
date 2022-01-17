@@ -200,8 +200,7 @@
       <li class="cs">
         <router-link class="move" :to="{ name: 'Faq'}">고객센터</router-link>
         <ul class="category">
-          <li><router-link class="move" :to="{ name: 'Location'}">가게 위치</router-link></li>
-          <li><router-link class="move" :to="{ name: 'Inquire'}">문의하기</router-link></li>
+          <li><router-link class="move" :to="{ name: 'Location'}">가게 정보</router-link></li>
           <li><router-link class="move" :to="{ name: 'Faq'}">FAQ</router-link></li>
         </ul>
       </li>

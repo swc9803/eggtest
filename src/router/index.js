@@ -13,7 +13,6 @@ import Pevent from '@/pages/product/event/Pevent'
 import Levent from '@/pages/product/event/Levent'
 import Notice from '@/pages/product/notice/Notice'
 import Location from '@/pages/product/cs/Location'
-import Inquire from '@/pages/product/cs/Inquire'
 import Faq from '@/pages/product/cs/Faq'
 import SignIn from '@/pages/auth/SignIn'
 import SignUp from '@/pages/auth/SignUp'
@@ -83,11 +82,6 @@ const routes = [
         path: '/cs/location',
         name: 'Location',
         component: Location
-      },
-      {
-        path: '/cs/inquire',
-        name: 'Inquire',
-        component: Inquire
       },
       {
         path: '/cs/faq',
