@@ -8,7 +8,12 @@
   <div class="container eventbody">
     <div class="eventcard">
       <img src="@/assets/event/quiz.png">
-      <p class="title">계란 상식 퀴즈 이벤트</p>
+      <p class="title">test1</p>
+      <p class="date">[21.11.27 ~ 22.01.01]</p>
+    </div>
+    <div class="eventcard">
+      <img src="@/assets/event/quiz.png">
+      <p class="title">test2</p>
       <p class="date">[21.11.27 ~ 22.01.01]</p>
     </div>
   </div>
@@ -22,7 +27,6 @@
   flex-wrap: wrap;
   .eventcard {
     cursor: pointer;
-    margin-top: 40px;
     padding: 15px;
     width: calc(100% / 3);
     flex: 0 0 calc(100% / 3);

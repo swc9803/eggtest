@@ -42,7 +42,6 @@ export default {
   flex-wrap: wrap;
   .eventcard {
     cursor: pointer;
-    margin-top: 40px;
     padding: 15px;
     width: calc(100% / 3);
     flex: 0 0 calc(100% / 3);

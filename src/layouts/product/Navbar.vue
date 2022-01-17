@@ -2,7 +2,7 @@
   <!-- 로고 마이페이지 -->
   <nav class="logobar">
     <div class="firstnav">
-      <svg class="logo" @click="goToProduct"
+      <svg class="logo" @click="moveToProduct"
         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 212 104">
         <g id="logo">
           <g id="top">
@@ -102,8 +102,8 @@
       </svg>
       <div class="menuegg">
         <div class="auth">
-          <p class="sign"><i class="fas fa-sign-in-alt"></i>로그인</p>
-          <p><i class="fas fa-user-plus"></i>회원가입</p>
+          <p @click="showModal" class="sign"><i class="fas fa-sign-in-alt"></i>로그인</p>
+          <p @click="showupModal" ><i class="fas fa-user-plus"></i>회원가입</p>
         </div>
         <div class="mypage egg">
           <svg class="egguser" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 88 117">
@@ -164,6 +164,45 @@
       </div>
     </div>
   </nav>
+  <!-- 로그인, 회원가입 모달 -->
+  <div class="authmodal" id="signinmodal">
+    <div class="wrapper">
+      <h2>로그인</h2>
+      <div class="auth">
+        <label>Email</label>
+        <input type="email" class="form-control">
+      </div>
+      <div class="auth">
+        <label>Password</label>
+        <input type="password" class="form-control">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">로그인</button>
+        <button @click="closeModal" type="button" class="btn btn-secondary">취소</button>
+      </div>
+    </div>
+  </div>
+  <div class="authmodal" id="signupmodal">
+    <div class="wrapper">
+      <h2>회원가입</h2>
+      <div class="auth">
+        <label>Name</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="auth">
+        <label>Email</label>
+        <input type="email" class="form-control">
+      </div>
+      <div class="auth">
+        <label>Password</label>
+        <input placeholder="최소 6자 이상 작성해주세요!" type="password" class="form-control">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">가입</button>
+        <button @click="closeupModal" type="button" class="btn btn-secondary">취소</button>
+      </div>
+    </div>
+  </div>
 
   <!-- 카테고리 네브바 -->
   <div class="container second">
@@ -219,11 +258,30 @@ gsap.registerPlugin(ScrollTrigger)
 export default {
   setup () {
     const router = useRouter()
-    const goToProduct = () => {
+
+    const moveToProduct = () => {
       router.push({
         name: 'Product'
       })
     }
+
+    const showModal = () => {
+      const modal = document.getElementById('signinmodal')
+      modal.style.display = 'block'
+    }
+    const closeModal = () => {
+      const modal = document.getElementById('signinmodal')
+      modal.style.display = 'none'
+    }
+    const showupModal = () => {
+      const upmodal = document.getElementById('signupmodal')
+      upmodal.style.display = 'block'
+    }
+    const closeupModal = () => {
+      const upmodal = document.getElementById('signupmodal')
+      upmodal.style.display = 'none'
+    }
+
     // 토글애니메이션
     const toggledata = ref(false)
     const toggle = () => {
@@ -294,7 +352,7 @@ export default {
     }
 
     return {
-      goToProduct, toggledata, toggle
+      moveToProduct, toggledata, toggle, showModal, closeModal, showupModal, closeupModal
     }
   }
 }
@@ -351,6 +409,37 @@ export default {
         cursor: pointer;
         width: 45px;
         margin-left: 30px;
+      }
+    }
+  }
+}
+.authmodal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  .wrapper {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    width: 500px;
+    h2 {
+      color: #ad7100;
+    }
+    .auth {
+      margin-top: 20px;
+    }
+    .modal-footer {
+      button {
+        margin-left: 10px;
       }
     }
   }
@@ -432,7 +521,6 @@ export default {
 
   .second {
     padding: 0;
-    // margin-top: 120px;
   }
 }
 

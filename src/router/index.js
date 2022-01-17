@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeLayout from '@/layouts/home/Index'
 import ProductLayout from '@/layouts/product/Index'
-import AuthenticationLayout from '@/layouts/authentication/Index'
 import Home from '@/pages/Home'
 import Product from '@/pages/product/ProductHome'
 import Egg from '@/pages/product/menu/Egg'
@@ -14,8 +13,6 @@ import Levent from '@/pages/product/event/Levent'
 import Notice from '@/pages/product/notice/Notice'
 import Location from '@/pages/product/cs/Location'
 import Faq from '@/pages/product/cs/Faq'
-import SignIn from '@/pages/auth/SignIn'
-import SignUp from '@/pages/auth/SignUp'
 
 const routes = [
   {
@@ -87,22 +84,6 @@ const routes = [
         path: '/cs/faq',
         name: 'Faq',
         component: Faq
-      }
-    ]
-  },
-  {
-    path: '/authentication',
-    component: AuthenticationLayout,
-    children: [
-      {
-        path: '/sign-in',
-        name: 'SignIn',
-        component: SignIn
-      },
-      {
-        path: '/sign-up',
-        name: 'SignUp',
-        component: SignUp
       }
     ]
   }
