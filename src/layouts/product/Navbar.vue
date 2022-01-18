@@ -249,7 +249,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -350,6 +350,34 @@ export default {
         }, '<')
       }
     }
+    onMounted(() => {
+      ScrollTrigger.matchMedia({
+        '(min-width: 768px)': function () {
+          // 로고
+          const navUp = gsap.from('.logobar', {
+            paused: true,
+            yPercent: -20,
+            boxShadow: '0px 2px 3px rgb(179, 179, 179)',
+            duration: 0.3,
+            ease: 'none'
+          }).progress(1)
+          const navmarginUp = gsap.from('.firstnav', {
+            paused: true,
+            marginBottom: '20px',
+            duration: 0.3,
+            ease: 'none'
+          }).progress(1)
+          ScrollTrigger.create({
+            start: 'top top',
+            end: '140px',
+            onUpdate: (self) => {
+              self.direction === -1 ? navUp.play() : navUp.reverse()
+              self.direction === -1 ? navmarginUp.play() : navmarginUp.reverse()
+            }
+          })
+        }
+      })
+    })
 
     return {
       moveToProduct, toggledata, toggle, showModal, closeModal, showupModal, closeupModal
@@ -366,7 +394,6 @@ export default {
   width: 100%;
   padding-left: 10%;
   padding-right: 10%;
-  box-shadow: 0px 2px 3px rgb(179, 179, 179);
   .firstnav {
     display: flex;
     justify-content: space-between;
