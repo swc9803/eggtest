@@ -3,8 +3,8 @@
     <div class="wrapper">
       <input @click="onFocus" class="watch" type="checkbox">
       <div class="video">
-        <video src="https://www.robmillsarchitects.com/files/land/city/RMA_Web_land_city_1.mp4"
-        loop muted autoplay playsinline></video>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/g1IVTDmV35o?autoplay=1&mute=1" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="text">
         <span data-text="Watch the video"></span>
@@ -49,7 +49,7 @@ export default {
       margin-left: 15px;
       clip-path: circle(15px at left);
       transition: clip-path .4s ease;
-      video {
+      iframe {
         position: fixed;
         background: #c4cbde;
         top: 50%;

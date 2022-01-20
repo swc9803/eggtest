@@ -165,7 +165,7 @@
     </div>
   </nav>
   <!-- 로그인, 회원가입 모달 -->
-  <div class="authmodal" id="signinmodal">
+  <div class="authmodal" ref="signinmodal">
     <div class="wrapper">
       <h2>로그인</h2>
       <div class="auth">
@@ -182,7 +182,7 @@
       </div>
     </div>
   </div>
-  <div class="authmodal" id="signupmodal">
+  <div class="authmodal" ref="signupmodal">
     <div class="wrapper">
       <h2>회원가입</h2>
       <div class="auth">
@@ -257,6 +257,8 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default {
   setup () {
+    const signinmodal = ref(null)
+    const signupmodal = ref(null)
     const router = useRouter()
 
     const moveToProduct = () => {
@@ -266,20 +268,16 @@ export default {
     }
 
     const showModal = () => {
-      const modal = document.getElementById('signinmodal')
-      modal.style.display = 'block'
+      signinmodal.value.style.display = 'block'
     }
     const closeModal = () => {
-      const modal = document.getElementById('signinmodal')
-      modal.style.display = 'none'
+      signinmodal.value.style.display = 'none'
     }
     const showupModal = () => {
-      const upmodal = document.getElementById('signupmodal')
-      upmodal.style.display = 'block'
+      signupmodal.value.style.display = 'block'
     }
     const closeupModal = () => {
-      const upmodal = document.getElementById('signupmodal')
-      upmodal.style.display = 'none'
+      signupmodal.value.style.display = 'none'
     }
 
     // 토글애니메이션
@@ -380,7 +378,15 @@ export default {
     })
 
     return {
-      moveToProduct, toggledata, toggle, showModal, closeModal, showupModal, closeupModal
+      moveToProduct,
+      toggledata,
+      toggle,
+      showModal,
+      closeModal,
+      showupModal,
+      closeupModal,
+      signinmodal,
+      signupmodal
     }
   }
 }

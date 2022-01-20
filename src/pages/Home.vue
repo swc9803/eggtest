@@ -1,6 +1,6 @@
 <template>
   <!-- 초기 페이지 -->
-  <div id="darkback" />
+  <div class="darkback" ref="darkback" />
   <div class="firstmain">
     계란 떨어지고 옆에 박스 나타나게
   </div>
@@ -59,11 +59,12 @@
       <img src="@/assets/main/imgs1.png">
     </div>
   </div>
+  <div class="progress" ref="progressbar" />
 </template>
 
 <script>
 import VH from '@/components/VideoHover'
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -74,9 +75,10 @@ export default {
     VH
   },
   setup () {
+    const darkback = ref(null)
+    const progressbar = ref(null)
     const focusVideo = () => {
-      const darkback = document.getElementById('darkback')
-      darkback.style.opacity = ((darkback.style.opacity !== '1') ? '1' : '0')
+      darkback.value.style.opacity = ((darkback.value.style.opacity !== '1') ? '1' : '0')
     }
 
     const router = useRouter()
@@ -88,6 +90,13 @@ export default {
 
     onMounted(() => {
       scrollTo(0, 0)
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+
+      window.addEventListener('scroll', () => {
+        const scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+        progressbar.value.style.width = `${(scrollTop / height) * 100}%`
+      })
+
       gsap.to('.slide1 > img', { xPercent: -200, duration: 100, ease: 'none', repeat: -1 }).progress(0.25)
       gsap.from('.slide2 > img', { xPercent: -200, duration: 100, ease: 'none', repeat: -1 }).progress(0.5)
       gsap.to('.slide3 > img', { xPercent: -200, duration: 100, ease: 'none', repeat: -1 }).progress(0.5)
@@ -184,13 +193,22 @@ export default {
       })
     })
     return {
-      focusVideo, moveToProduct
+      focusVideo, moveToProduct, darkback, progressbar
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.progress{
+  position: fixed;
+  width: 0%;
+  height: 5px;
+  top: 0px;
+  left: 0px;
+  background-color: rgb(115, 252, 176);
+  z-index: 50;
+}
 .firstmain {
   width: 100%;
   height: 100vh;
@@ -317,7 +335,7 @@ export default {
     background-position: 99% 50%;
   }
 }
-#darkback {
+.darkback {
   opacity: 0;
   position: fixed;
   z-index: 0;
