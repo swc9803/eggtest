@@ -2,7 +2,16 @@
   <!-- 초기 페이지 -->
   <div id="darkback" />
   <div class="firstmain">
-    <p>신선한 사료를 사용해 건강한 닭이 낳은 신선한 달걀을 만나보세요.</p>
+    계란 떨어지고 옆에 박스 나타나게
+  </div>
+  <div class="secondmain">
+    <VH class="vh" @focus="focusVideo" />
+  </div>
+  <div class="thirdmain">
+    메뉴들 수평 슬라이드
+  </div>
+  <div class="fourthmain">
+    <p class="p2">신선한 사료를 사용해 건강한 닭이 낳은 신선한 달걀을 만나보세요.</p>
     <div class="imgs slide1">
       <img src="@/assets/main/imgs1.png">
       <img src="@/assets/main/imgs2.png">
@@ -24,18 +33,11 @@
       <img src="@/assets/main/imgs1.png">
     </div>
   </div>
-  <div class="secondmain">
-    <VH class="vh" @focus="focusVideo"/>
-    <h1>초기 페이지</h1>
-    <h1>초기 페이지</h1>
-    <h1>초기 페이지</h1>
-    <h1>초기 페이지</h1>
-  </div>
 </template>
 
 <script>
 import VH from '@/components/VideoHover'
-import { onBeforeMount, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
@@ -49,32 +51,26 @@ export default {
       const darkback = document.getElementById('darkback')
       darkback.style.opacity = ((darkback.style.opacity !== '1') ? '1' : '0')
     }
-    onBeforeMount(() => {
-      window.onload = function () {
-        setTimeout(function () {
-          scrollTo(0, 0)
-        }, 0)
-      }
-    })
+
     onMounted(() => {
-      gsap.to('.slide1 > img', { xPercent: -200, duration: 72, ease: 'none', repeat: -1 }).progress(0.25)
-      gsap.from('.slide2 > img', { xPercent: -200, duration: 72, ease: 'none', repeat: -1 }).progress(0.5)
-      gsap.to('.slide3 > img', { xPercent: -200, duration: 72, ease: 'none', repeat: -1 }).progress(0.5)
-      gsap.from('.slide4 > img', { xPercent: -200, duration: 72, ease: 'none', repeat: -1 }).progress(0.25)
+      scrollTo(0, 0)
+      gsap.to('.slide1 > img', { xPercent: -200, duration: 88, ease: 'none', repeat: -1 }).progress(0.25)
+      gsap.from('.slide2 > img', { xPercent: -200, duration: 88, ease: 'none', repeat: -1 }).progress(0.5)
+      gsap.to('.slide3 > img', { xPercent: -200, duration: 88, ease: 'none', repeat: -1 }).progress(0.5)
+      gsap.from('.slide4 > img', { xPercent: -200, duration: 88, ease: 'none', repeat: -1 }).progress(0.25)
 
       // 텍스트
-      const showtext = gsap.timeline()
+      const showtext1 = gsap.timeline()
       ScrollTrigger.create({
-        animation: showtext,
-        trigger: '.firstmain',
+        animation: showtext1,
+        trigger: '.fourthmain',
         start: 'top top',
-        end: '230%',
+        end: '+=50%',
         scrub: 1,
-        pin: true,
-        markers: true
+        pin: true
       })
-      showtext.from('.firstmain > p', {
-        yPercent: -20,
+      showtext1.to('.fourthmain > .p1', {
+        y: '-70px',
         opacity: 0
       })
     })
@@ -87,6 +83,15 @@ export default {
 
 <style lang="scss" scoped>
 .firstmain {
+  width: 100%;
+  height: 100vh;
+}
+.thirdmain {
+  width: 100%;
+  height: 100vh;
+  background: rgb(255, 255, 136);
+}
+.fourthmain {
   width: 100%;
   height: 100vh;
   background: rgb(185, 185, 185);
@@ -106,12 +111,15 @@ export default {
     }
   }
   p {
+    padding: 10px;
     background: rgba(0, 0, 0, 0.7);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+    font-size: 1.5em;
+    font-weight: 600;
     z-index: 6;
     text-align: center;
     word-break: keep-all;
@@ -120,14 +128,14 @@ export default {
 #darkback {
   opacity: 0;
   position: fixed;
-  z-index: -1;
+  z-index: 0;
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.4);
   transition: .5s ease;
 }
 @media screen and (max-width: 768px) {
-  .firstmain {
+  .fourthmain {
     .imgs {
       top: 0;
       img {

@@ -17,6 +17,8 @@
 export default {
   setup (props, { emit }) {
     const onFocus = () => {
+      const videoheight = document.querySelector('.ov').offsetHeight
+      scrollTo({ top: videoheight + (videoheight / 8), behavior: 'smooth' })
       emit('focus')
     }
     return {
