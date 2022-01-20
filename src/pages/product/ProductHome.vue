@@ -210,6 +210,7 @@ export default {
       })
     }
     onMounted(() => {
+      scrollTo(0, 0)
       // 메뉴 호버 이벤트
       const morecoverhover1 = gsap.from('.morecover1', {
         background: 'white',
