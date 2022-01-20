@@ -1,23 +1,35 @@
 <template>
   <!-- 초기 페이지 -->
   <div id="darkback" />
-  <!-- <div class="firstmain">
+  <div class="firstmain">
     계란 떨어지고 옆에 박스 나타나게
-  </div> -->
+  </div>
+
   <div class="secondmain">
     <VH class="vh" @focus="focusVideo" />
   </div>
+
   <div class="thirdmain">
-    메뉴들 수평 슬라이드
-    <div class="boxes">
-      <div class="box1 box">
-        계란
+    <h2>SGG MENU</h2>
+    <h6>여러 즐길 거리를 만나보세요.</h6>
+    <div class="container">
+      <div class="menucard menucard1">
+        <div class="morecover morecover1">
+          <p>계란</p>
+        </div>
+        <img class="menulist" src="@/assets/egg.png">
       </div>
-      <div class="box2 box">
-        반숙란
+      <div class="menucard menucard2">
+        <div class="morecover morecover2">
+          <p>반숙란</p>
+        </div>
+        <img class="menulist" src="@/assets/begg.png">
       </div>
-      <div class="box3 box">
-        맥반석 계란
+      <div class="menucard menucard3">
+        <div class="morecover morecover3">
+          <p>맥반석 계란</p>
+        </div>
+        <img class="menulist" src="@/assets/megg.png">
       </div>
     </div>
   </div>
@@ -81,6 +93,83 @@ export default {
       gsap.to('.slide3 > img', { xPercent: -200, duration: 100, ease: 'none', repeat: -1 }).progress(0.5)
       gsap.from('.slide4 > img', { xPercent: -200, duration: 100, ease: 'none', repeat: -1 }).progress(0.25)
 
+      // 메뉴 호버 이벤트
+      const menucard = gsap.timeline()
+      ScrollTrigger.create({
+        animation: menucard,
+        trigger: '.container',
+        start: 'top 30%',
+        end: '35% 100%',
+        pin: true
+      })
+      menucard.from('.menucard1', { xPercent: 50, opacity: 0 })
+      menucard.from('.menucard2', { xPercent: 50, opacity: 0 })
+      menucard.from('.menucard3', { xPercent: 50, opacity: 0 })
+
+      const morecoverhover1 = gsap.from('.morecover1', {
+        background: 'white',
+        duration: 0.4,
+        ease: 'none'
+      })
+
+      const moretexthover1 = gsap.to('.morecover1 > p', {
+        color: 'white',
+        duration: 0.4,
+        ease: 'none'
+      })
+      morecoverhover1.pause()
+      moretexthover1.pause()
+      document.querySelector('.menucard1').addEventListener('mouseenter', function () {
+        morecoverhover1.play()
+        moretexthover1.play()
+      })
+      document.querySelector('.menucard1').addEventListener('mouseleave', function () {
+        morecoverhover1.reverse()
+        moretexthover1.reverse()
+      })
+
+      const morecoverhover2 = gsap.from('.morecover2', {
+        background: 'white',
+        duration: 0.4,
+        ease: 'none'
+      })
+      const moretexthover2 = gsap.to('.morecover2 > p', {
+        color: 'white',
+        duration: 0.4,
+        ease: 'none'
+      })
+      morecoverhover2.pause()
+      moretexthover2.pause()
+      document.querySelector('.menucard2').addEventListener('mouseenter', function () {
+        morecoverhover2.play()
+        moretexthover2.play()
+      })
+      document.querySelector('.menucard2').addEventListener('mouseleave', function () {
+        morecoverhover2.reverse()
+        moretexthover2.reverse()
+      })
+
+      const morecoverhover3 = gsap.from('.morecover3', {
+        background: 'white',
+        duration: 0.4,
+        ease: 'none'
+      })
+      const moretexthover3 = gsap.to('.morecover3 > p', {
+        color: 'white',
+        duration: 0.4,
+        ease: 'none'
+      })
+      morecoverhover3.pause()
+      moretexthover3.pause()
+      document.querySelector('.menucard3').addEventListener('mouseenter', function () {
+        morecoverhover3.play()
+        moretexthover3.play()
+      })
+      document.querySelector('.menucard3').addEventListener('mouseleave', function () {
+        morecoverhover3.reverse()
+        moretexthover3.reverse()
+      })
+
       // 텍스트
       const showtext = gsap.timeline()
       ScrollTrigger.create({
@@ -106,18 +195,67 @@ export default {
   width: 100%;
   height: 100vh;
 }
+
 .thirdmain {
+  position: relative;
   width: 100%;
   height: 100vh;
-  background: rgb(255, 255, 136);
-  .boxes {
+  overflow: hidden;
+  h2 {
+    word-spacing: 10px;
+    color: white;
+    text-align: center;
+    padding-top: 40px;
+  }
+  h6 {
+    color: rgb(222, 222, 222);
+    text-align: center;
+    padding-top: 8px;
+  }
+  .container {
     display: flex;
-    .box {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-top: 50px;
+    padding-bottom: 70px;
+    .menucard {
+      position: relative;
       width: 30%;
-      // height: ;
+      background: white;
+      margin: 20px 1% 60px 1%;
+      p {
+        margin: 20px 0 20px 0;
+        font-size: 1.4em;
+        font-weight: 600;
+        color: #AE5E00;
+        text-align: center;
+        line-height: 140px;
+      }
+      .menulist {
+        margin-top: 169px;
+        width: 100%;
+        height: 70%;
+      }
+      .morecover {
+        position: absolute;
+        width: 100%;
+        height: 170px;
+        background: #AE5E00;
+      }
     }
   }
 }
+.thirdmain::before {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('~@/assets/friedegg.png');
+  filter: blur(1px);
+}
+
 .fourthmain {
   position: relative;
   width: 100%;
@@ -140,7 +278,6 @@ export default {
   }
   p {
     padding: 10px;
-    // background: rgba(0, 0, 0, 0.7);
     position: absolute;
     top: 40%;
     left: 50%;
