@@ -16,7 +16,7 @@
           <td class="qna">Q</td>
           <td class="title">실제로 존재하는 가게인가요?</td>
         </tr>
-        <tr class="answer" id="ans1" style="display: none">
+        <tr class="answer" ref="answer1" style="display: none">
           <td class="qna">A</td>
           <td class="title">아닙니다.</td>
         </tr>
@@ -24,7 +24,7 @@
           <td class="qna">Q</td>
           <td class="title">계란이 정말로 신선한가요?</td>
         </tr>
-        <tr class="answer" id="ans2" style="display: none">
+        <tr class="answer" ref="answer2" style="display: none">
           <td class="qna">A</td>
           <td class="title">answer5</td>
         </tr>
@@ -32,7 +32,7 @@
           <td class="qna">Q</td>
           <td class="title">test4</td>
         </tr>
-        <tr class="answer" id="ans3" style="display: none">
+        <tr class="answer" ref="answer3" style="display: none">
           <td class="qna">A</td>
           <td class="title">answer4</td>
         </tr>
@@ -40,7 +40,7 @@
           <td class="qna">Q</td>
           <td class="title">test3</td>
         </tr>
-        <tr class="answer" id="ans4" style="display: none">
+        <tr class="answer" ref="answer4" style="display: none">
           <td class="qna">A</td>
           <td class="title">answer3</td>
         </tr>
@@ -48,7 +48,7 @@
           <td class="qna">Q</td>
           <td class="title">test2</td>
         </tr>
-        <tr class="answer" id="ans5" style="display: none">
+        <tr class="answer" ref="answer5" style="display: none">
           <td class="qna">A</td>
           <td class="title">answer2</td>
         </tr>
@@ -56,7 +56,7 @@
           <td class="qna">Q</td>
           <td class="title">test1</td>
         </tr>
-        <tr class="answer" id="ans6" style="display: none">
+        <tr class="answer" ref="answer6" style="display: none">
           <td class="qna">A</td>
           <td class="title">answer1</td>
         </tr>
@@ -66,34 +66,32 @@
 </template>
 
 <script>
+import { ref } from 'vue'
 export default {
   setup () {
+    const answer1 = ref(null); const answer2 = ref(null); const answer3 = ref(null)
+    const answer4 = ref(null); const answer5 = ref(null); const answer6 = ref(null)
     const showanswer1 = () => {
-      const ans1 = document.getElementById('ans1')
-      ans1.style.display = ((ans1.style.display !== 'none') ? 'none' : '')
+      answer1.value.style.display = ((answer1.value.style.display !== 'none') ? 'none' : '')
     }
     const showanswer2 = () => {
-      const ans2 = document.getElementById('ans2')
-      ans2.style.display = ((ans2.style.display !== 'none') ? 'none' : '')
+      answer2.value.style.display = ((answer2.value.style.display !== 'none') ? 'none' : '')
     }
     const showanswer3 = () => {
-      const ans3 = document.getElementById('ans3')
-      ans3.style.display = ((ans3.style.display !== 'none') ? 'none' : '')
+      answer3.value.style.display = ((answer3.value.style.display !== 'none') ? 'none' : '')
     }
     const showanswer4 = () => {
-      const ans4 = document.getElementById('ans4')
-      ans4.style.display = ((ans4.style.display !== 'none') ? 'none' : '')
+      answer4.value.style.display = ((answer4.value.style.display !== 'none') ? 'none' : '')
     }
     const showanswer5 = () => {
-      const ans5 = document.getElementById('ans5')
-      ans5.style.display = ((ans5.style.display !== 'none') ? 'none' : '')
+      answer5.value.style.display = ((answer5.value.style.display !== 'none') ? 'none' : '')
     }
     const showanswer6 = () => {
-      const ans6 = document.getElementById('ans6')
-      ans6.style.display = ((ans6.style.display !== 'none') ? 'none' : '')
+      answer6.value.style.display = ((answer6.value.style.display !== 'none') ? 'none' : '')
     }
+
     return {
-      showanswer1, showanswer2, showanswer3, showanswer4, showanswer5, showanswer6
+      answer1, answer2, answer3, answer4, answer5, answer6, showanswer1, showanswer2, showanswer3, showanswer4, showanswer5, showanswer6
     }
   }
 }

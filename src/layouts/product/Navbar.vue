@@ -106,7 +106,7 @@
           <p @click="showupModal" ><i class="fas fa-user-plus"></i>회원가입</p>
         </div>
         <div class="mypage egg">
-          <svg class="egguser" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 88 117">
+          <svg @click="showModal" class="egguser" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 88 117">
             <g>
               <g id="egg">
                 <path id="foundation" fill="#000" d="M87.6 69.8c0 33.6-19.6 46.2-43.8 46.2C19.6 116 0 103.4 0 69.8S19.6 0 43.8 0C68 0 87.6 36.2 87.6 69.8Z"/>
