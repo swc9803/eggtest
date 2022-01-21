@@ -2,7 +2,17 @@
   <!-- 초기 페이지 -->
   <div class="darkback" ref="darkback" />
   <div class="firstmain">
-    계란 떨어지고 옆에 박스 나타나게
+    <Draw />
+    <div class="wrapper">
+      <div class="box1" @mouseenter="infocus1" @mouseleave="outfocus1">
+        <img src="@/assets/chicken.png" ref="img1">
+        <p>건강한 닭이 낳은 신선한 달걀입니다.</p>
+      </div>
+      <div class="box2" @mouseenter="infocus2" @mouseleave="outfocus2">
+        <img src="@/assets/firstegg.png" ref="img2">
+        <p>내 가족이 먹는다는 생각으로 품질에 신경을 쓰고있습니다.</p>
+      </div>
+    </div>
   </div>
 
   <div class="secondmain">
@@ -33,6 +43,7 @@
       </div>
     </div>
   </div>
+
   <div class="fourthmain">
     <p>유기농 사료를 먹인 건강한 닭이 낳은 신선한 달걀을 만나보세요.</p>
     <div class="gohome" @click="moveToProduct">
@@ -59,10 +70,12 @@
       <img src="@/assets/main/imgs1.png">
     </div>
   </div>
+
   <div class="progress" ref="progressbar" />
 </template>
 
 <script>
+import Draw from '@/components/Drawtext'
 import VH from '@/components/VideoHover'
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -72,7 +85,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default {
   components: {
-    VH
+    Draw, VH
   },
   setup () {
     const darkback = ref(null)
@@ -83,7 +96,8 @@ export default {
     const coverani1 = gsap.timeline({ paused: true }); const covertextani1 = gsap.timeline({ paused: true })
     const coverani2 = gsap.timeline({ paused: true }); const covertextani2 = gsap.timeline({ paused: true })
     const coverani3 = gsap.timeline({ paused: true }); const covertextani3 = gsap.timeline({ paused: true })
-
+    const img1 = ref(); const img2 = ref()
+    const infocusani1 = gsap.timeline({ paused: true }); const infocusani2 = gsap.timeline({ paused: true })
     // 비디오 클릭시 배겨여 어둡게, 토글
     const focusVideo = () => {
       darkback.value.style.opacity = ((darkback.value.style.opacity !== '1') ? '1' : '0')
@@ -98,6 +112,12 @@ export default {
 
     onMounted(() => {
       scrollTo(0, 0)
+      // firstmain 이벤트
+      gsap.from('.box1', { xPercent: -20, opacity: 0, duration: 1.5, delay: 2 })
+      gsap.from('.box2', { xPercent: 20, opacity: 0, duration: 1.5, delay: 2.5 })
+      infocusani1.to(img1.value, { filter: 'grayscale(0.8)', scale: 1.05, transformOrigin: 'center center', duration: 0.3, ease: 'none' })
+      infocusani2.to(img2.value, { filter: 'grayscale(0.8)', scale: 1.05, transformOrigin: 'center center', duration: 0.3, ease: 'none' })
+
       // progress
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
       window.addEventListener('scroll', () => {
@@ -169,6 +189,11 @@ export default {
       covertextani3.reverse()
     }
 
+    const infocus1 = () => infocusani1.play()
+    const outfocus1 = () => infocusani1.reverse()
+    const infocus2 = () => infocusani2.play()
+    const outfocus2 = () => infocusani2.reverse()
+
     return {
       focusVideo,
       moveToProduct,
@@ -185,7 +210,13 @@ export default {
       play2,
       reverse2,
       play3,
-      reverse3
+      reverse3,
+      img1,
+      img2,
+      infocus1,
+      infocus2,
+      outfocus1,
+      outfocus2
     }
   }
 }
@@ -203,8 +234,43 @@ export default {
 }
 
 .firstmain {
+  // position: relative;
   width: 100%;
   height: 100vh;
+  background: #f7ffda;
+  text-align: center;
+  overflow: hidden;
+  .wrapper {
+    display: flex;
+    align-items: flex-end;
+    div {
+      width: 35%;
+      background: rgb(255, 255, 255);
+      border: 2px skyblue solid;
+      overflow: hidden;
+      p {
+        margin-top: 20px;
+        color: rgb(156, 57, 0);
+        font-size: 1.5em;
+        font-weight: 600;
+        word-break: keep-all;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    .box1 {
+      position: relative;
+      left: 7%;
+      transform: translate(0, -40%);
+    }
+    .box2 {
+      position: relative;
+      left: 23%;
+      transform: translate(0, 10%);
+      margin-top: 5%;
+    }
+  }
 }
 
 .thirdmain {
@@ -324,7 +390,7 @@ export default {
   }
   .gohome:hover {
     color: #fff;
-    border: 1px solid rgba(223,190,106,0);
+    border: 2px solid rgba(223,190,106,0);
     background-position: 99% 50%;
   }
 }
@@ -340,6 +406,15 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
+  .firstmain {
+    .wrapper {
+      div {
+        p {
+          font-size: 1em;
+        }
+      }
+    }
+  }
   .fourthmain {
     .imgs {
       top: 0;
@@ -349,4 +424,5 @@ export default {
     }
   }
 }
+
 </style>
