@@ -234,7 +234,7 @@ export default {
 }
 
 .firstmain {
-  // position: relative;
+  position: relative;
   width: 100%;
   height: 100vh;
   background: #f7ffda;
@@ -271,6 +271,15 @@ export default {
       margin-top: 5%;
     }
   }
+}
+.firstmain::before {
+  content: '';
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('~@/assets/firstmainback.png');
 }
 
 .thirdmain {
@@ -422,6 +431,11 @@ export default {
         width: 200%;
       }
     }
+  }
+}
+@media screen and (max-width: 480px) {
+  .box2 {
+    top: 20%;
   }
 }
 
