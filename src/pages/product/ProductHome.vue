@@ -90,38 +90,38 @@
     <h2>SGG MENU</h2>
     <h6>여러 즐길 거리를 만나보세요.</h6>
     <div class="container">
-      <div class="menucard menucard1">
-        <div class="morecover morecover1">
-          <p>계란</p>
-          <div class="morebox morebox1" @click="moveToEgg">
-            <h3>More</h3>
+      <div class="menucard" @mouseenter="play1" @mouseleave="reverse1">
+        <div class="morecover" ref="cover1">
+          <p ref="covertext1">계란</p>
+          <div class="morebox" @click="moveToEgg" ref="box1">
+            <h3 ref="boxtext1">More</h3>
           </div>
         </div>
         <img class="menulist" src="@/assets/egg.png">
       </div>
-      <div class="menucard menucard2">
-        <div class="morecover morecover2">
-          <p>반숙란</p>
-          <div class="morebox morebox2" @click="moveToBegg">
-            <h3>More</h3>
+      <div class="menucard" @mouseenter="play2" @mouseleave="reverse2">
+        <div class="morecover" ref="cover2">
+          <p ref="covertext2">반숙란</p>
+          <div class="morebox" @click="moveToBegg" ref="box2">
+            <h3 ref="boxtext2">More</h3>
           </div>
         </div>
         <img class="menulist" src="@/assets/begg.png">
       </div>
-      <div class="menucard menucard3">
-        <div class="morecover morecover3">
-          <p>맥반석 계란</p>
-          <div class="morebox morebox3" @click="moveToMegg">
-            <h3>More</h3>
+      <div class="menucard" @mouseenter="play3" @mouseleave="reverse3">
+        <div class="morecover" ref="cover3">
+          <p ref="covertext3">맥반석 계란</p>
+          <div class="morebox" @click="moveToMegg" ref="box3">
+            <h3 ref="boxtext3">More</h3>
           </div>
         </div>
         <img class="menulist" src="@/assets/megg.png">
       </div>
-      <div class="menucard menucard4">
-        <div class="morecover morecover4">
-          <p>사이드 메뉴</p>
-          <div class="morebox morebox4" @click="moveToSand">
-            <h3>More</h3>
+      <div class="menucard" @mouseenter="play4" @mouseleave="reverse4">
+        <div class="morecover" ref="cover4">
+          <p ref="covertext4">사이드 메뉴</p>
+          <div class="morebox" @click="moveToSand" ref="box4">
+            <h3 ref="boxtext4">More</h3>
           </div>
         </div>
         <img class="menulist" src="@/assets/side.png">
@@ -160,7 +160,7 @@
 </template>
 
 <script>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -168,6 +168,23 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default {
   setup () {
+    const cover1 = ref(); const covertext1 = ref()
+    const cover2 = ref(); const covertext2 = ref()
+    const cover3 = ref(); const covertext3 = ref()
+    const cover4 = ref(); const covertext4 = ref()
+    const box1 = ref(); const boxtext1 = ref()
+    const box2 = ref(); const boxtext2 = ref()
+    const box3 = ref(); const boxtext3 = ref()
+    const box4 = ref(); const boxtext4 = ref()
+    const coverani1 = gsap.timeline({ paused: true }); const covertextani1 = gsap.timeline({ paused: true })
+    const coverani2 = gsap.timeline({ paused: true }); const covertextani2 = gsap.timeline({ paused: true })
+    const coverani3 = gsap.timeline({ paused: true }); const covertextani3 = gsap.timeline({ paused: true })
+    const coverani4 = gsap.timeline({ paused: true }); const covertextani4 = gsap.timeline({ paused: true })
+    const boxani1 = gsap.timeline({ paused: true })
+    const boxani2 = gsap.timeline({ paused: true })
+    const boxani3 = gsap.timeline({ paused: true })
+    const boxani4 = gsap.timeline({ paused: true })
+
     const router = useRouter()
     const moveToNotice = () => {
       router.push({
@@ -212,121 +229,18 @@ export default {
     onMounted(() => {
       scrollTo(0, 0)
       // 메뉴 호버 이벤트
-      const morecoverhover1 = gsap.from('.morecover1', {
-        background: 'white',
-        duration: 0.4,
-        ease: 'none'
-      })
-      const moreboxhover1 = gsap.to('.morebox1', {
-        border: 'white 2px solid',
-        duration: 0.4,
-        ease: 'none'
-      })
-      const moretexthover1 = gsap.to('.morebox1 > h3, .morecover1 > p', {
-        color: 'white',
-        duration: 0.4,
-        ease: 'none'
-      })
-      moreboxhover1.pause()
-      morecoverhover1.pause()
-      moretexthover1.pause()
-      document.querySelector('.menucard1').addEventListener('mouseenter', function () {
-        moreboxhover1.play()
-        morecoverhover1.play()
-        moretexthover1.play()
-      })
-      document.querySelector('.menucard1').addEventListener('mouseleave', function () {
-        moreboxhover1.reverse()
-        morecoverhover1.reverse()
-        moretexthover1.reverse()
-      })
-
-      const morecoverhover2 = gsap.from('.morecover2', {
-        background: 'white',
-        duration: 0.4,
-        ease: 'none'
-      })
-      const moreboxhover2 = gsap.to('.morebox2', {
-        border: 'white 2px solid',
-        duration: 0.4,
-        ease: 'none'
-      })
-      const moretexthover2 = gsap.to('.morebox2 > h3, .morecover2 > p', {
-        color: 'white',
-        duration: 0.4,
-        ease: 'none'
-      })
-      moreboxhover2.pause()
-      morecoverhover2.pause()
-      moretexthover2.pause()
-      document.querySelector('.menucard2').addEventListener('mouseenter', function () {
-        moreboxhover2.play()
-        morecoverhover2.play()
-        moretexthover2.play()
-      })
-      document.querySelector('.menucard2').addEventListener('mouseleave', function () {
-        moreboxhover2.reverse()
-        morecoverhover2.reverse()
-        moretexthover2.reverse()
-      })
-
-      const morecoverhover3 = gsap.from('.morecover3', {
-        background: 'white',
-        duration: 0.4,
-        ease: 'none'
-      })
-      const moreboxhover3 = gsap.to('.morebox3', {
-        border: 'white 2px solid',
-        duration: 0.4,
-        ease: 'none'
-      })
-      const moretexthover3 = gsap.to('.morebox3 > h3, .morecover3 > p', {
-        color: 'white',
-        duration: 0.4,
-        ease: 'none'
-      })
-      moreboxhover3.pause()
-      morecoverhover3.pause()
-      moretexthover3.pause()
-      document.querySelector('.menucard3').addEventListener('mouseenter', function () {
-        moreboxhover3.play()
-        morecoverhover3.play()
-        moretexthover3.play()
-      })
-      document.querySelector('.menucard3').addEventListener('mouseleave', function () {
-        moreboxhover3.reverse()
-        morecoverhover3.reverse()
-        moretexthover3.reverse()
-      })
-
-      const morecoverhover4 = gsap.from('.morecover4', {
-        background: 'white',
-        duration: 0.4,
-        ease: 'none'
-      })
-      const moreboxhover4 = gsap.to('.morebox4', {
-        border: 'white 2px solid',
-        duration: 0.4,
-        ease: 'none'
-      })
-      const moretexthover4 = gsap.to('.morebox4 > h3, .morecover4 > p', {
-        color: 'white',
-        duration: 0.4,
-        ease: 'none'
-      })
-      moreboxhover4.pause()
-      morecoverhover4.pause()
-      moretexthover4.pause()
-      document.querySelector('.menucard4').addEventListener('mouseenter', function () {
-        moreboxhover4.play()
-        morecoverhover4.play()
-        moretexthover4.play()
-      })
-      document.querySelector('.menucard4').addEventListener('mouseleave', function () {
-        moreboxhover4.reverse()
-        morecoverhover4.reverse()
-        moretexthover4.reverse()
-      })
+      coverani1.from(cover1.value, { background: 'white', duration: 0.4, ease: 'none' })
+      covertextani1.to([covertext1.value, boxtext1.value], { color: 'white', duration: 0.4, ease: 'none' })
+      boxani1.to(box1.value, { border: 'white 2px solid', duration: 0.4, ease: 'none' })
+      coverani2.from(cover2.value, { background: 'white', duration: 0.4, ease: 'none' })
+      covertextani2.to([covertext2.value, boxtext2.value], { color: 'white', duration: 0.4, ease: 'none' })
+      boxani2.to(box2.value, { border: 'white 2px solid', duration: 0.4, ease: 'none' })
+      coverani3.from(cover3.value, { background: 'white', duration: 0.4, ease: 'none' })
+      covertextani3.to([covertext3.value, boxtext3.value], { color: 'white', duration: 0.4, ease: 'none' })
+      boxani3.to(box3.value, { border: 'white 2px solid', duration: 0.4, ease: 'none' })
+      coverani4.from(cover4.value, { background: 'white', duration: 0.4, ease: 'none' })
+      covertextani4.to([covertext4.value, boxtext4.value], { color: 'white', duration: 0.4, ease: 'none' })
+      boxani4.to(box4.value, { border: 'white 2px solid', duration: 0.4, ease: 'none' })
 
       // info 스크롤 시 보이기
       const showInfo = gsap.timeline()
@@ -339,8 +253,81 @@ export default {
         yPercent: 10, opacity: 0, duration: 1, ease: 'none'
       })
     })
+
+    const play1 = () => {
+      coverani1.play()
+      covertextani1.play()
+      boxani1.play()
+    }
+    const play2 = () => {
+      coverani2.play()
+      covertextani2.play()
+      boxani2.play()
+    }
+    const play3 = () => {
+      coverani3.play()
+      covertextani3.play()
+      boxani3.play()
+    }
+    const play4 = () => {
+      coverani4.play()
+      covertextani4.play()
+      boxani4.play()
+    }
+    const reverse1 = () => {
+      coverani1.reverse()
+      covertextani1.reverse()
+      boxani1.reverse()
+    }
+    const reverse2 = () => {
+      coverani2.reverse()
+      covertextani2.reverse()
+      boxani2.reverse()
+    }
+    const reverse3 = () => {
+      coverani3.reverse()
+      covertextani3.reverse()
+      boxani3.reverse()
+    }
+    const reverse4 = () => {
+      coverani4.reverse()
+      covertextani4.reverse()
+      boxani4.reverse()
+    }
+
     return {
-      moveToNotice, moveToEvent, moveToEgg, moveToBegg, moveToMegg, moveToSand, moveToLocation, moveToFaq
+      moveToNotice,
+      moveToEvent,
+      moveToEgg,
+      moveToBegg,
+      moveToMegg,
+      moveToSand,
+      moveToLocation,
+      moveToFaq,
+      box1,
+      box2,
+      box3,
+      box4,
+      boxtext1,
+      boxtext2,
+      boxtext3,
+      boxtext4,
+      cover1,
+      cover2,
+      cover3,
+      cover4,
+      covertext1,
+      covertext2,
+      covertext3,
+      covertext4,
+      play1,
+      play2,
+      play3,
+      play4,
+      reverse1,
+      reverse2,
+      reverse3,
+      reverse4
     }
   }
 }

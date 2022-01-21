@@ -4,7 +4,7 @@
       <input @click="onFocus" class="watch" type="checkbox">
       <div class="video">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/g1IVTDmV35o?autoplay=1&mute=1" title="YouTube video player"
-        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        frameborder="0"></iframe>
       </div>
       <div class="text">
         <span data-text="Watch the video"></span>

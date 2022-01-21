@@ -13,21 +13,21 @@
     <h2>SGG MENU</h2>
     <h6>여러 즐길 거리를 만나보세요.</h6>
     <div class="container">
-      <div class="menucard menucard1">
-        <div class="morecover morecover1">
-          <p>계란</p>
+      <div class="menucard menucard1" @mouseenter="play1" @mouseleave="reverse1">
+        <div class="morecover" ref="cover1">
+          <p ref="covertext1">계란</p>
         </div>
         <img class="menulist" src="@/assets/egg.png">
       </div>
-      <div class="menucard menucard2">
-        <div class="morecover morecover2">
-          <p>반숙란</p>
+      <div class="menucard menucard2" @mouseenter="play2" @mouseleave="reverse2">
+        <div class="morecover" ref="cover2">
+          <p ref="covertext2">반숙란</p>
         </div>
         <img class="menulist" src="@/assets/begg.png">
       </div>
-      <div class="menucard menucard3">
-        <div class="morecover morecover3">
-          <p>맥반석 계란</p>
+      <div class="menucard menucard3" @mouseenter="play3" @mouseleave="reverse3">
+        <div class="morecover" ref="cover3">
+          <p ref="covertext3">맥반석 계란</p>
         </div>
         <img class="menulist" src="@/assets/megg.png">
       </div>
@@ -77,6 +77,14 @@ export default {
   setup () {
     const darkback = ref(null)
     const progressbar = ref(null)
+    const cover1 = ref(); const covertext1 = ref()
+    const cover2 = ref(); const covertext2 = ref()
+    const cover3 = ref(); const covertext3 = ref()
+    const coverani1 = gsap.timeline({ paused: true }); const covertextani1 = gsap.timeline({ paused: true })
+    const coverani2 = gsap.timeline({ paused: true }); const covertextani2 = gsap.timeline({ paused: true })
+    const coverani3 = gsap.timeline({ paused: true }); const covertextani3 = gsap.timeline({ paused: true })
+
+    // 비디오 클릭시 배겨여 어둡게, 토글
     const focusVideo = () => {
       darkback.value.style.opacity = ((darkback.value.style.opacity !== '1') ? '1' : '0')
     }
@@ -92,7 +100,6 @@ export default {
       scrollTo(0, 0)
       // progress
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
-
       window.addEventListener('scroll', () => {
         const scrollTop = document.body.scrollTop || document.documentElement.scrollTop
         progressbar.value.style.width = `${(scrollTop / height) * 100}%`
@@ -116,69 +123,12 @@ export default {
       menucard.from('.menucard2', { xPercent: 50, opacity: 0 })
       menucard.from('.menucard3', { xPercent: 50, opacity: 0 })
 
-      const morecoverhover1 = gsap.from('.morecover1', {
-        background: 'white',
-        duration: 0.4,
-        ease: 'none'
-      })
-
-      const moretexthover1 = gsap.to('.morecover1 > p', {
-        color: 'white',
-        duration: 0.4,
-        ease: 'none'
-      })
-      morecoverhover1.pause()
-      moretexthover1.pause()
-      document.querySelector('.menucard1').addEventListener('mouseenter', function () {
-        morecoverhover1.play()
-        moretexthover1.play()
-      })
-      document.querySelector('.menucard1').addEventListener('mouseleave', function () {
-        morecoverhover1.reverse()
-        moretexthover1.reverse()
-      })
-
-      const morecoverhover2 = gsap.from('.morecover2', {
-        background: 'white',
-        duration: 0.4,
-        ease: 'none'
-      })
-      const moretexthover2 = gsap.to('.morecover2 > p', {
-        color: 'white',
-        duration: 0.4,
-        ease: 'none'
-      })
-      morecoverhover2.pause()
-      moretexthover2.pause()
-      document.querySelector('.menucard2').addEventListener('mouseenter', function () {
-        morecoverhover2.play()
-        moretexthover2.play()
-      })
-      document.querySelector('.menucard2').addEventListener('mouseleave', function () {
-        morecoverhover2.reverse()
-        moretexthover2.reverse()
-      })
-
-      const morecoverhover3 = gsap.from('.morecover3', {
-        background: 'white',
-        duration: 0.4,
-        ease: 'none'
-      })
-      const moretexthover3 = gsap.to('.morecover3 > p', {
-        color: 'white',
-        duration: 0.4,
-        ease: 'none'
-      })
-      morecoverhover3.pause()
-      moretexthover3.pause()
-      document.querySelector('.menucard3').addEventListener('mouseenter', function () {
-        morecoverhover3.play()
-        moretexthover3.play()
-      })
-      document.querySelector('.menucard3').addEventListener('mouseleave', function () {
-        morecoverhover3.reverse()
-        moretexthover3.reverse()
-      })
+      coverani1.from(cover1.value, { background: 'white', duration: 0.4, ease: 'none' })
+      covertextani1.to(covertext1.value, { color: 'white', duration: 0.4, ease: 'none' })
+      coverani2.from(cover2.value, { background: 'white', duration: 0.4, ease: 'none' })
+      covertextani2.to(covertext2.value, { color: 'white', duration: 0.4, ease: 'none' })
+      coverani3.from(cover3.value, { background: 'white', duration: 0.4, ease: 'none' })
+      covertextani3.to(covertext3.value, { color: 'white', duration: 0.4, ease: 'none' })
 
       // 텍스트
       const showtext = gsap.timeline()
@@ -193,8 +143,49 @@ export default {
         y: 20, opacity: 0
       })
     })
+
+    const play1 = () => {
+      coverani1.play()
+      covertextani1.play()
+    }
+    const reverse1 = () => {
+      coverani1.reverse()
+      covertextani1.reverse()
+    }
+    const play2 = () => {
+      coverani2.play()
+      covertextani2.play()
+    }
+    const reverse2 = () => {
+      coverani2.reverse()
+      covertextani2.reverse()
+    }
+    const play3 = () => {
+      coverani3.play()
+      covertextani3.play()
+    }
+    const reverse3 = () => {
+      coverani3.reverse()
+      covertextani3.reverse()
+    }
+
     return {
-      focusVideo, moveToProduct, darkback, progressbar
+      focusVideo,
+      moveToProduct,
+      darkback,
+      progressbar,
+      cover1,
+      covertext1,
+      cover2,
+      covertext2,
+      cover3,
+      covertext3,
+      play1,
+      reverse1,
+      play2,
+      reverse2,
+      play3,
+      reverse3
     }
   }
 }
