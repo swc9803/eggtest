@@ -34,7 +34,7 @@
     </div>
   </div>
   <div class="fourthmain">
-    <p>신선한 사료를 사용해 건강한 닭이 낳은 신선한 달걀을 만나보세요.</p>
+    <p>유기농 사료를 먹인 건강한 닭이 낳은 신선한 달걀을 만나보세요.</p>
     <div class="gohome" @click="moveToProduct">
       홈페이지
     </div>
@@ -90,6 +90,7 @@ export default {
 
     onMounted(() => {
       scrollTo(0, 0)
+      // progress
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
 
       window.addEventListener('scroll', () => {
@@ -107,8 +108,8 @@ export default {
       ScrollTrigger.create({
         animation: menucard,
         trigger: '.container',
-        start: 'top 30%',
-        end: '35% 100%',
+        start: 'top 50%',
+        end: '25% 100%',
         pin: true
       })
       menucard.from('.menucard1', { xPercent: 50, opacity: 0 })
@@ -185,11 +186,11 @@ export default {
         animation: showtext,
         trigger: '.fourthmain',
         start: 'top 30%',
-        end: '35% 100%',
+        end: '33% 100%',
         scrub: 1
       })
-      showtext.from('.fourthmain > p', {
-        yPercent: 10, opacity: 0
+      showtext.from('.fourthmain > p, .gohome', {
+        y: 20, opacity: 0
       })
     })
     return {
@@ -203,12 +204,13 @@ export default {
 .progress{
   position: fixed;
   width: 0%;
-  height: 5px;
+  height: 7px;
   top: 0px;
   left: 0px;
-  background-color: rgb(115, 252, 176);
+  background-color: rgb(142, 167, 0);
   z-index: 50;
 }
+
 .firstmain {
   width: 100%;
   height: 100vh;
@@ -335,6 +337,7 @@ export default {
     background-position: 99% 50%;
   }
 }
+
 .darkback {
   opacity: 0;
   position: fixed;
@@ -344,6 +347,7 @@ export default {
   background: rgba(0, 0, 0, 0.4);
   transition: .5s ease;
 }
+
 @media screen and (max-width: 768px) {
   .fourthmain {
     .imgs {
