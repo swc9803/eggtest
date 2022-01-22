@@ -2,7 +2,8 @@
   <!-- 초기 페이지 -->
   <div class="darkback" ref="darkback" />
   <div class="firstmain">
-    <Draw />
+    <Draw  />
+
     <div class="wrapper">
       <div class="box1" @mouseenter="infocus1" @mouseleave="outfocus1">
         <img src="@/assets/chicken.png" ref="img1">
@@ -232,12 +233,10 @@ export default {
   background-color: rgb(142, 167, 0);
   z-index: 50;
 }
-
 .firstmain {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: #f7ffda;
   text-align: center;
   overflow: hidden;
   .wrapper {
@@ -274,7 +273,7 @@ export default {
 }
 .firstmain::before {
   content: '';
-  z-index: 0;
+  z-index: -1;
   position: absolute;
   top: 0;
   left: 0;
