@@ -2,8 +2,7 @@
   <!-- 초기 페이지 -->
   <div class="darkback" ref="darkback" />
   <div class="firstmain">
-    <Draw  />
-
+    <Draw />
     <div class="wrapper">
       <div class="box1" @mouseenter="infocus1" @mouseleave="outfocus1">
         <img src="@/assets/chicken.png" ref="img1">
@@ -140,9 +139,9 @@ export default {
         end: '25% 100%',
         pin: true
       })
-      menucard.from('.menucard1', { xPercent: 50, opacity: 0 })
-        .from('.menucard2', { xPercent: 50, opacity: 0 })
-        .from('.menucard3', { xPercent: 50, opacity: 0 })
+      menucard.from('.menucard1', { xPercent: 50, opacity: 0, delay: 0.1 })
+        .from('.menucard2', { xPercent: 50, opacity: 0, delay: 0.1 })
+        .from('.menucard3', { xPercent: 50, opacity: 0, delay: 0.1 })
 
       coverani1.from(cover1.value, { background: 'white', duration: 0.4, ease: 'none' })
       covertextani1.to(covertext1.value, { color: 'white', duration: 0.4, ease: 'none' })
@@ -279,6 +278,8 @@ export default {
   left: 0;
   width: 100%; height: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('~@/assets/firstmainback.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .thirdmain {
@@ -338,6 +339,8 @@ export default {
   left: 0;
   width: 100%; height: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('~@/assets/friedegg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   filter: blur(1px);
 }
 
