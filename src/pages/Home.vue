@@ -140,8 +140,8 @@ export default {
         pin: true
       })
       menucard.from('.menucard1', { xPercent: 50, opacity: 0 })
-      menucard.from('.menucard2', { xPercent: 50, opacity: 0 })
-      menucard.from('.menucard3', { xPercent: 50, opacity: 0 })
+        .from('.menucard2', { xPercent: 50, opacity: 0 })
+        .from('.menucard3', { xPercent: 50, opacity: 0 })
 
       coverani1.from(cover1.value, { background: 'white', duration: 0.4, ease: 'none' })
       covertextani1.to(covertext1.value, { color: 'white', duration: 0.4, ease: 'none' })
