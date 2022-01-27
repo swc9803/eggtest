@@ -139,9 +139,9 @@ export default {
         end: '25% 100%',
         pin: true
       })
-      menucard.from('.menucard1', { xPercent: 50, opacity: 0, delay: 0.1 })
-        .from('.menucard2', { xPercent: 50, opacity: 0, delay: 0.1 })
-        .from('.menucard3', { xPercent: 50, opacity: 0, delay: 0.1 })
+      menucard.from('.menucard3', { xPercent: 50, opacity: 0, delay: 0.1, duration: 0.5 })
+        .from('.menucard2', { xPercent: 50, opacity: 0, delay: 0.1, duration: 0.5 })
+        .from('.menucard1', { xPercent: 50, opacity: 0, delay: 0.1, duration: 0.5 })
 
       coverani1.from(cover1.value, { background: 'white', duration: 0.4, ease: 'none' })
       covertextani1.to(covertext1.value, { color: 'white', duration: 0.4, ease: 'none' })
