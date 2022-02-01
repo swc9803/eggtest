@@ -23,19 +23,19 @@
     <h2>SGG MENU</h2>
     <h6>여러 즐길 거리를 만나보세요.</h6>
     <div class="container">
-      <div class="menucard menucard1" @mouseenter="play1" @mouseleave="reverse1">
+      <div class="menucard" @mouseenter="play1" @mouseleave="reverse1">
         <div class="morecover" ref="cover1">
           <p ref="covertext1">계란</p>
         </div>
         <img class="menulist" src="@/assets/egg.png">
       </div>
-      <div class="menucard menucard2" @mouseenter="play2" @mouseleave="reverse2">
+      <div class="menucard" @mouseenter="play2" @mouseleave="reverse2">
         <div class="morecover" ref="cover2">
           <p ref="covertext2">반숙란</p>
         </div>
         <img class="menulist" src="@/assets/begg.png">
       </div>
-      <div class="menucard menucard3" @mouseenter="play3" @mouseleave="reverse3">
+      <div class="menucard" @mouseenter="play3" @mouseleave="reverse3">
         <div class="morecover" ref="cover3">
           <p ref="covertext3">맥반석 계란</p>
         </div>
@@ -139,9 +139,7 @@ export default {
         end: '25% 100%',
         pin: true
       })
-      menucard.from('.menucard3', { xPercent: 50, opacity: 0, delay: 0.1, duration: 0.5 })
-        .from('.menucard2', { xPercent: 50, opacity: 0, delay: 0.1, duration: 0.5 })
-        .from('.menucard1', { xPercent: 50, opacity: 0, delay: 0.1, duration: 0.5 })
+      menucard.fromTo('.menucard', { opacity: 0, xPercent: 50 }, { opacity: 1, xPercent: 0, stagger: 0.4 })
 
       coverani1.from(cover1.value, { background: 'white', duration: 0.4, ease: 'none' })
       covertextani1.to(covertext1.value, { color: 'white', duration: 0.4, ease: 'none' })

@@ -350,7 +350,7 @@ export default {
     }
     onMounted(() => {
       ScrollTrigger.matchMedia({
-        '(min-width: 768px)': function () {
+        '(min-width: 769px)': function () {
           // 로고
           const navUp = gsap.from('.logobar', {
             paused: true,
@@ -400,6 +400,7 @@ export default {
   width: 100%;
   padding-left: 10%;
   padding-right: 10%;
+  box-shadow: none;
   .firstnav {
     display: flex;
     justify-content: space-between;
