@@ -228,7 +228,7 @@ export default {
     }
     onMounted(() => {
       scrollTo(0, 0)
-      // 메뉴 호버 이벤트
+      // 메뉴 호버시 배경색, 글자색 변경 애니메이션
       coverani1.from(cover1.value, { background: 'white', duration: 0.4, ease: 'none' })
       covertextani1.to([covertext1.value, boxtext1.value], { color: 'white', duration: 0.4, ease: 'none' })
       boxani1.to(box1.value, { border: 'white 2px solid', duration: 0.4, ease: 'none' })
@@ -242,7 +242,7 @@ export default {
       covertextani4.to([covertext4.value, boxtext4.value], { color: 'white', duration: 0.4, ease: 'none' })
       boxani4.to(box4.value, { border: 'white 2px solid', duration: 0.4, ease: 'none' })
 
-      // info 스크롤 시 보이기
+      // info 스크롤 시 opacity 0 > 1
       const showInfo = gsap.timeline()
       ScrollTrigger.create({
         animation: showInfo,

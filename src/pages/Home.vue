@@ -70,8 +70,6 @@
       <img src="@/assets/main/imgs1.png">
     </div>
   </div>
-
-  <div class="progress" ref="progressbar" />
 </template>
 
 <script>
@@ -89,7 +87,6 @@ export default {
   },
   setup () {
     const darkback = ref(null)
-    const progressbar = ref(null)
     const cover1 = ref(); const covertext1 = ref()
     const cover2 = ref(); const covertext2 = ref()
     const cover3 = ref(); const covertext3 = ref()
@@ -117,13 +114,6 @@ export default {
       gsap.from('.box2', { xPercent: 20, opacity: 0, duration: 1.5, delay: 2.5 })
       infocusani1.to(img1.value, { filter: 'grayscale(0.8)', scale: 1.05, transformOrigin: 'center center', duration: 0.3, ease: 'none' })
       infocusani2.to(img2.value, { filter: 'grayscale(0.8)', scale: 1.05, transformOrigin: 'center center', duration: 0.3, ease: 'none' })
-
-      // progress
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
-      window.addEventListener('scroll', () => {
-        const scrollTop = document.body.scrollTop || document.documentElement.scrollTop
-        progressbar.value.style.width = `${(scrollTop / height) * 100}%`
-      })
 
       gsap.to('.slide1 > img', { xPercent: -200, duration: 100, ease: 'none', repeat: -1 }).progress(0.25)
       gsap.from('.slide2 > img', { xPercent: -200, duration: 100, ease: 'none', repeat: -1 }).progress(0.5)
@@ -196,7 +186,6 @@ export default {
       focusVideo,
       moveToProduct,
       darkback,
-      progressbar,
       cover1,
       covertext1,
       cover2,
@@ -221,15 +210,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.progress{
-  position: fixed;
-  width: 0%;
-  height: 7px;
-  top: 0px;
-  left: 0px;
-  background-color: rgb(142, 167, 0);
-  z-index: 50;
-}
 .firstmain {
   position: relative;
   width: 100%;
